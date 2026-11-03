@@ -147,7 +147,7 @@ function Index() {
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-background/80 via-background/40 to-transparent"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[70%] bg-gradient-to-b from-background/85 via-background/55 via-45% to-transparent"
         />
         <div className="container-page relative flex flex-col justify-start pb-10 pt-6 md:pt-12">
           <p className="eyebrow">Квартиры · Частные дома</p>
