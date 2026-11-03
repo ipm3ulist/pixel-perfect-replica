@@ -147,9 +147,9 @@ function Index() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-graphite/92 via-graphite/60 to-graphite/35 md:bg-gradient-to-r md:from-graphite/90 md:via-graphite/55 md:to-graphite/10"
+          className="absolute inset-0 bg-gradient-to-b from-graphite/92 via-graphite/60 to-graphite/20 md:bg-gradient-to-r md:from-graphite/90 md:via-graphite/55 md:to-graphite/10"
         />
-        <div className="container-page relative flex min-h-[620px] flex-col justify-end pb-12 pt-20 md:min-h-[700px] md:justify-center md:py-28 lg:min-h-[760px]">
+        <div className="container-page relative flex min-h-[620px] flex-col justify-start pb-14 pt-14 md:min-h-[700px] md:justify-center md:py-28 lg:min-h-[760px]">
           <p className="text-xs font-bold tracking-[0.14em] uppercase text-brand-bright">
             Квартиры · Частные дома
           </p>
