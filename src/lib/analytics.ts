@@ -56,7 +56,7 @@ function loadScript(src: string) {
 /** Вызывается при старте и после изменения согласия. */
 export function initAnalytics() {
   if (typeof window === "undefined") return;
-  const w = window as W;
+  const w = window as unknown as W;
   const allowed = hasConsent("analytics");
   if (ANALYTICS.gaId) w[`ga-disable-${ANALYTICS.gaId}`] = !allowed;
   if (!allowed) return;
@@ -96,7 +96,7 @@ export function isAnalyticsLoaded() {
 
 export function trackPageView(path: string) {
   if (typeof window === "undefined" || !hasConsent("analytics")) return;
-  const w = window as W;
+  const w = window as unknown as W;
   if (ymLoaded && w.ym) w.ym(Number(ANALYTICS.ymId), "hit", path);
   if (gaLoaded && w.gtag) w.gtag("event", "page_view", { page_path: path });
 }
@@ -106,7 +106,7 @@ export function track(event: AnalyticsEvent, params: Record<string, unknown> = {
   const clean = sanitize(params);
   window.__lovableEvents?.track?.(`project.${event}`, clean as Record<string, string | number>);
   if (!hasConsent("analytics")) return;
-  const w = window as W;
+  const w = window as unknown as W;
   if (ymLoaded && w.ym) w.ym(Number(ANALYTICS.ymId), "reachGoal", event, clean);
   if (gaLoaded && w.gtag) w.gtag("event", event, clean);
 }
