@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { track } from "@/lib/analytics";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -24,6 +26,7 @@ export const Route = createFileRoute("/doma/proekty")({
 });
 
 function Page() {
+  useEffect(() => track("house_project_viewed", { page: "proekty" }), []);
   return (
     <>
       <PageHeader
