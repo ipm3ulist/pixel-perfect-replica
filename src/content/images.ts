@@ -5,6 +5,7 @@
 import heroHouse from "@/assets/hero-house.jpg";
 import heroInterior from "@/assets/hero-interior.jpg";
 import familyHouse from "@/assets/family-house.jpg";
+import familyHouseHero from "@/assets/family-house-hero.jpg";
 import apartment from "@/assets/direction-apartment.jpg";
 import house from "@/assets/direction-house.jpg";
 import materials from "@/assets/materials.jpg";
@@ -25,6 +26,10 @@ export const IMAGES = {
   familyHouse: {
     src: familyHouse,
     alt: "Современный двухэтажный дом с деревянным фасадом и большими окнами, к которому по дорожке идёт семья: мама, папа, дочь и сын",
+  },
+  familyHouseHero: {
+    src: familyHouseHero,
+    alt: "Современный дом с деревянным и бетонным фасадом на закате; к террасе по дорожке идёт семья: мама, папа, дочь и сын",
   },
   apartment: {
     src: apartment,

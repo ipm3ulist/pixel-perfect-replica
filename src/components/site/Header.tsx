@@ -178,7 +178,7 @@ export function Header() {
         <div
           id={`mega-${mega}`}
           onMouseEnter={() => hoverOpen(mega)}
-          className="absolute inset-x-0 top-full hidden border-b border-border bg-background shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--header)_55%,transparent)] lg:block"
+          className="absolute inset-x-0 top-full hidden border-b border-border bg-background text-foreground shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--header)_55%,transparent)] lg:block"
         >
           <MegaPanel d={mega} onNavigate={() => setMega(null)} />
         </div>
@@ -188,7 +188,7 @@ export function Header() {
         <nav
           id="mobile-menu"
           aria-label="Мобильное меню"
-          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-header-line bg-background xl:hidden"
+          className="min-h-[calc(100dvh-4.5rem)] max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-header-line bg-background pb-40 text-foreground xl:hidden"
         >
           <div className="container-page grid gap-8 py-6">
             <form role="search" action="/poisk">

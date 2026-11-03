@@ -131,45 +131,53 @@ function Index() {
   const latest = [...ARTICLES].reverse();
   const lead = latest.find((a) => a.image)!;
   const terms = TERM_ENTRIES.slice(-6);
-  const family = IMAGES.familyHouse;
+  const family = IMAGES.familyHouseHero;
 
   return (
     <>
-      {/* Первый экран */}
-      <section className="relative border-b border-border">
-        <div className="container-page py-14 md:py-20">
+      {/* Первый экран: фото семьи во всю ширину сразу под шапкой, заголовок в небе над людьми */}
+      <section className="relative isolate min-h-[550px] overflow-hidden border-b border-border bg-background md:min-h-[720px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
+        <img
+          src={family.src}
+          alt={family.alt}
+          width={1920}
+          height={1088}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-[26%_100%] lg:object-[50%_0%]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[70%] bg-gradient-to-b from-background/85 via-background/55 via-45% to-transparent"
+        />
+        <div className="container-page relative flex flex-col justify-start pb-10 pt-6 md:pt-12">
           <p className="eyebrow">Квартиры · Частные дома</p>
-          <h1 className="mt-6 max-w-4xl text-[2.75rem] leading-[1.02] font-extrabold md:text-[4.25rem]">
+          <h1 className="mt-3 max-w-3xl text-[1.75rem] leading-[1.05] font-extrabold text-graphite md:mt-5 md:text-[3.5rem]">
             Дом начинается с&nbsp;правильных решений
           </h1>
-          <p className="mt-7 max-w-xl text-lg text-muted-foreground">
+          <p className="mt-3 max-w-xl text-sm text-graphite/85 md:mt-6 md:text-lg">
             Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
             работ, материалы, расчёты и инструкции — без рекламы под видом советов.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-2 md:mt-8 md:gap-3">
             <a
               href="#napravlenie"
-              className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm bg-primary px-3.5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark md:px-6 md:py-3.5"
             >
               Выбрать направление <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               to="/kalkulyatory"
-              className="inline-flex items-center gap-2 rounded-sm border border-primary/30 bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground hover:border-primary"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm border border-primary/35 bg-background px-3.5 py-3 text-sm font-semibold text-primary hover:bg-accent hover:text-accent-foreground md:px-6 md:py-3.5"
             >
               Калькуляторы
             </Link>
           </div>
         </div>
-        <img
-          src={family.src}
-          alt={family.alt}
-          width={1920}
-          height={1280}
-          fetchPriority="high"
-          className="aspect-[4/3] w-full object-cover md:aspect-[3/2]"
-        />
-        <div className="container-page border-t border-border py-6">
+      </section>
+
+      {/* Показатели */}
+      <div className="border-b border-border">
+        <div className="container-page py-6">
           <dl className="grid max-w-md grid-cols-3 text-sm">
             <div>
               <dt className="text-muted-foreground">Статей</dt>
@@ -185,7 +193,7 @@ function Index() {
             </div>
           </dl>
         </div>
-      </section>
+      </div>
 
       {/* Что вы планируете */}
       <section
