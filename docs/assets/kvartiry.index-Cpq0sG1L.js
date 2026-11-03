@@ -1,1 +1,0 @@
-import{t as e}from"./jsx-runtime-BkSabwWG.js";import{j as t}from"./index-mQnxwuu5.js";var n=e(),r=()=>(0,n.jsx)(t,{direction:`kvartiry`});export{r as component};

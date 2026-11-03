@@ -7,7 +7,7 @@
 /*
  * ДомКлючПро design system.
  * Palette (HEX reference): bg #FAF9F6, stone #EFECE6, graphite #1E2226,
- * slate text #575E66, line #DDD8CE, accent oxide #A4482B, accent-dark #7E3520,
+ * slate text #575E66, line #DDD8CE, accent sage #60766C, accent-dark #485D53,
  * success #3D6B4F, warning #9A6B1E, error #A3352B.
  */
 
@@ -70,14 +70,14 @@
   --card-foreground: oklch(0.24 0.008 240);
   --popover: oklch(0.995 0.002 85);
   --popover-foreground: oklch(0.24 0.008 240);
-  --primary: oklch(0.52 0.13 38);
+  --primary: oklch(0.48 0.055 165);
   --primary-foreground: oklch(0.985 0.004 85);
   --secondary: oklch(0.94 0.007 80);
   --secondary-foreground: oklch(0.24 0.008 240);
   --muted: oklch(0.94 0.007 80);
   --muted-foreground: oklch(0.47 0.012 245);
-  --accent: oklch(0.93 0.025 45);
-  --accent-foreground: oklch(0.42 0.11 36);
+  --accent: oklch(0.94 0.025 160);
+  --accent-foreground: oklch(0.38 0.055 165);
   --destructive: oklch(0.5 0.15 28);
   --destructive-foreground: oklch(0.985 0.004 85);
   --success: oklch(0.48 0.07 155);
@@ -88,20 +88,20 @@
   --graphite-foreground: oklch(0.93 0.006 85);
   --border: oklch(0.88 0.012 85);
   --input: oklch(0.84 0.012 85);
-  --ring: oklch(0.52 0.13 38);
-  --chart-1: oklch(0.52 0.13 38);
+  --ring: oklch(0.48 0.055 165);
+  --chart-1: oklch(0.48 0.055 165);
   --chart-2: oklch(0.48 0.07 155);
   --chart-3: oklch(0.47 0.012 245);
   --chart-4: oklch(0.55 0.11 75);
   --chart-5: oklch(0.24 0.008 240);
   --sidebar: oklch(0.982 0.004 85);
   --sidebar-foreground: oklch(0.24 0.008 240);
-  --sidebar-primary: oklch(0.52 0.13 38);
+  --sidebar-primary: oklch(0.48 0.055 165);
   --sidebar-primary-foreground: oklch(0.985 0.004 85);
   --sidebar-accent: oklch(0.94 0.007 80);
   --sidebar-accent-foreground: oklch(0.24 0.008 240);
   --sidebar-border: oklch(0.88 0.012 85);
-  --sidebar-ring: oklch(0.52 0.13 38);
+  --sidebar-ring: oklch(0.48 0.055 165);
 }
 
 @layer base {
@@ -211,5 +211,49 @@
     color: var(--color-accent-foreground);
     text-decoration: underline;
     text-underline-offset: 3px;
+  }
+}
+
+
+/* ДомКлючПро: деликатная премиальная интерактивность */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    transition:
+      color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  input,
+  select,
+  textarea {
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease;
+  }
+
+  button:active,
+  [role="button"]:active {
+    transform: scale(0.985);
+  }
+
+  ::selection {
+    background: oklch(0.88 0.045 160);
+    color: oklch(0.24 0.008 240);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  button:not(:disabled):hover,
+  [role="button"]:not([aria-disabled="true"]):hover {
+    transform: translateY(-1px);
   }
 }
