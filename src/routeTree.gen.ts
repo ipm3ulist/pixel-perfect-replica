@@ -10,33 +10,453 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as OProekteRouteImport } from './routes/o-proekte'
+import { Route as PoiskRouteImport } from './routes/poisk'
+import { Route as ReklamaRouteImport } from './routes/reklama'
+import { Route as RemontRouteImport } from './routes/remont'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SpravochnikRouteImport } from './routes/spravochnik'
+import { Route as StroitelstvoRouteImport } from './routes/stroitelstvo'
+import { Route as ZayavkaRouteImport } from './routes/zayavka'
+import { Route as DokumentyIndexRouteImport } from './routes/dokumenty.index'
+import { Route as DokumentySlugRouteImport } from './routes/dokumenty.$slug'
+import { Route as DomaIndexRouteImport } from './routes/doma.index'
+import { Route as DomaCategoryRouteImport } from './routes/doma.$category'
+import { Route as DomaKonfiguratorRouteImport } from './routes/doma.konfigurator'
+import { Route as DomaProektyRouteImport } from './routes/doma.proekty'
+import { Route as DomaSmetaRouteImport } from './routes/doma.smeta'
+import { Route as InstruktsiiIndexRouteImport } from './routes/instruktsii.index'
+import { Route as InstruktsiiSlugRouteImport } from './routes/instruktsii.$slug'
+import { Route as KalkulyatoryIndexRouteImport } from './routes/kalkulyatory.index'
+import { Route as KalkulyatorySlugRouteImport } from './routes/kalkulyatory.$slug'
+import { Route as KalkulyatoryOboiRouteImport } from './routes/kalkulyatory.oboi'
+import { Route as KatalogIndexRouteImport } from './routes/katalog.index'
+import { Route as KatalogSectionRouteImport } from './routes/katalog.$section'
+import { Route as KvartiryIndexRouteImport } from './routes/kvartiry.index'
+import { Route as KvartiryCategoryRouteImport } from './routes/kvartiry.$category'
+import { Route as MaterialyIndexRouteImport } from './routes/materialy.index'
+import { Route as MaterialySlugRouteImport } from './routes/materialy.$slug'
+import { Route as RegionIndexRouteImport } from './routes/region.index'
+import { Route as RegionSlugRouteImport } from './routes/region.$slug'
+import { Route as SravnenieSlugRouteImport } from './routes/sravnenie.$slug'
+import { Route as StatiIndexRouteImport } from './routes/stati.index'
+import { Route as StatiSlugRouteImport } from './routes/stati.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OProekteRoute = OProekteRouteImport.update({
+  id: '/o-proekte',
+  path: '/o-proekte',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoiskRoute = PoiskRouteImport.update({
+  id: '/poisk',
+  path: '/poisk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReklamaRoute = ReklamaRouteImport.update({
+  id: '/reklama',
+  path: '/reklama',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RemontRoute = RemontRouteImport.update({
+  id: '/remont',
+  path: '/remont',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpravochnikRoute = SpravochnikRouteImport.update({
+  id: '/spravochnik',
+  path: '/spravochnik',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StroitelstvoRoute = StroitelstvoRouteImport.update({
+  id: '/stroitelstvo',
+  path: '/stroitelstvo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZayavkaRoute = ZayavkaRouteImport.update({
+  id: '/zayavka',
+  path: '/zayavka',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DokumentyIndexRoute = DokumentyIndexRouteImport.update({
+  id: '/dokumenty/',
+  path: '/dokumenty/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DokumentySlugRoute = DokumentySlugRouteImport.update({
+  id: '/dokumenty/$slug',
+  path: '/dokumenty/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomaIndexRoute = DomaIndexRouteImport.update({
+  id: '/doma/',
+  path: '/doma/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomaCategoryRoute = DomaCategoryRouteImport.update({
+  id: '/doma/$category',
+  path: '/doma/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomaKonfiguratorRoute = DomaKonfiguratorRouteImport.update({
+  id: '/doma/konfigurator',
+  path: '/doma/konfigurator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomaProektyRoute = DomaProektyRouteImport.update({
+  id: '/doma/proekty',
+  path: '/doma/proekty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DomaSmetaRoute = DomaSmetaRouteImport.update({
+  id: '/doma/smeta',
+  path: '/doma/smeta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstruktsiiIndexRoute = InstruktsiiIndexRouteImport.update({
+  id: '/instruktsii/',
+  path: '/instruktsii/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstruktsiiSlugRoute = InstruktsiiSlugRouteImport.update({
+  id: '/instruktsii/$slug',
+  path: '/instruktsii/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KalkulyatoryIndexRoute = KalkulyatoryIndexRouteImport.update({
+  id: '/kalkulyatory/',
+  path: '/kalkulyatory/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KalkulyatorySlugRoute = KalkulyatorySlugRouteImport.update({
+  id: '/kalkulyatory/$slug',
+  path: '/kalkulyatory/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KalkulyatoryOboiRoute = KalkulyatoryOboiRouteImport.update({
+  id: '/kalkulyatory/oboi',
+  path: '/kalkulyatory/oboi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KatalogIndexRoute = KatalogIndexRouteImport.update({
+  id: '/katalog/',
+  path: '/katalog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KatalogSectionRoute = KatalogSectionRouteImport.update({
+  id: '/katalog/$section',
+  path: '/katalog/$section',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KvartiryIndexRoute = KvartiryIndexRouteImport.update({
+  id: '/kvartiry/',
+  path: '/kvartiry/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KvartiryCategoryRoute = KvartiryCategoryRouteImport.update({
+  id: '/kvartiry/$category',
+  path: '/kvartiry/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialyIndexRoute = MaterialyIndexRouteImport.update({
+  id: '/materialy/',
+  path: '/materialy/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialySlugRoute = MaterialySlugRouteImport.update({
+  id: '/materialy/$slug',
+  path: '/materialy/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegionIndexRoute = RegionIndexRouteImport.update({
+  id: '/region/',
+  path: '/region/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegionSlugRoute = RegionSlugRouteImport.update({
+  id: '/region/$slug',
+  path: '/region/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SravnenieSlugRoute = SravnenieSlugRouteImport.update({
+  id: '/sravnenie/$slug',
+  path: '/sravnenie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatiIndexRoute = StatiIndexRouteImport.update({
+  id: '/stati/',
+  path: '/stati/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatiSlugRoute = StatiSlugRouteImport.update({
+  id: '/stati/$slug',
+  path: '/stati/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/o-proekte': typeof OProekteRoute
+  '/poisk': typeof PoiskRoute
+  '/reklama': typeof ReklamaRoute
+  '/remont': typeof RemontRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/spravochnik': typeof SpravochnikRoute
+  '/stroitelstvo': typeof StroitelstvoRoute
+  '/zayavka': typeof ZayavkaRoute
+  '/dokumenty/$slug': typeof DokumentySlugRoute
+  '/doma/$category': typeof DomaCategoryRoute
+  '/doma/konfigurator': typeof DomaKonfiguratorRoute
+  '/doma/proekty': typeof DomaProektyRoute
+  '/doma/smeta': typeof DomaSmetaRoute
+  '/instruktsii/$slug': typeof InstruktsiiSlugRoute
+  '/kalkulyatory/$slug': typeof KalkulyatorySlugRoute
+  '/kalkulyatory/oboi': typeof KalkulyatoryOboiRoute
+  '/katalog/$section': typeof KatalogSectionRoute
+  '/kvartiry/$category': typeof KvartiryCategoryRoute
+  '/materialy/$slug': typeof MaterialySlugRoute
+  '/region/$slug': typeof RegionSlugRoute
+  '/sravnenie/$slug': typeof SravnenieSlugRoute
+  '/stati/$slug': typeof StatiSlugRoute
+  '/dokumenty/': typeof DokumentyIndexRoute
+  '/doma/': typeof DomaIndexRoute
+  '/instruktsii/': typeof InstruktsiiIndexRoute
+  '/kalkulyatory/': typeof KalkulyatoryIndexRoute
+  '/katalog/': typeof KatalogIndexRoute
+  '/kvartiry/': typeof KvartiryIndexRoute
+  '/materialy/': typeof MaterialyIndexRoute
+  '/region/': typeof RegionIndexRoute
+  '/stati/': typeof StatiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/o-proekte': typeof OProekteRoute
+  '/poisk': typeof PoiskRoute
+  '/reklama': typeof ReklamaRoute
+  '/remont': typeof RemontRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/spravochnik': typeof SpravochnikRoute
+  '/stroitelstvo': typeof StroitelstvoRoute
+  '/zayavka': typeof ZayavkaRoute
+  '/dokumenty/$slug': typeof DokumentySlugRoute
+  '/doma/$category': typeof DomaCategoryRoute
+  '/doma/konfigurator': typeof DomaKonfiguratorRoute
+  '/doma/proekty': typeof DomaProektyRoute
+  '/doma/smeta': typeof DomaSmetaRoute
+  '/instruktsii/$slug': typeof InstruktsiiSlugRoute
+  '/kalkulyatory/$slug': typeof KalkulyatorySlugRoute
+  '/kalkulyatory/oboi': typeof KalkulyatoryOboiRoute
+  '/katalog/$section': typeof KatalogSectionRoute
+  '/kvartiry/$category': typeof KvartiryCategoryRoute
+  '/materialy/$slug': typeof MaterialySlugRoute
+  '/region/$slug': typeof RegionSlugRoute
+  '/sravnenie/$slug': typeof SravnenieSlugRoute
+  '/stati/$slug': typeof StatiSlugRoute
+  '/dokumenty': typeof DokumentyIndexRoute
+  '/doma': typeof DomaIndexRoute
+  '/instruktsii': typeof InstruktsiiIndexRoute
+  '/kalkulyatory': typeof KalkulyatoryIndexRoute
+  '/katalog': typeof KatalogIndexRoute
+  '/kvartiry': typeof KvartiryIndexRoute
+  '/materialy': typeof MaterialyIndexRoute
+  '/region': typeof RegionIndexRoute
+  '/stati': typeof StatiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/o-proekte': typeof OProekteRoute
+  '/poisk': typeof PoiskRoute
+  '/reklama': typeof ReklamaRoute
+  '/remont': typeof RemontRoute
+  '/robots.txt': typeof RobotsDottxtRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/spravochnik': typeof SpravochnikRoute
+  '/stroitelstvo': typeof StroitelstvoRoute
+  '/zayavka': typeof ZayavkaRoute
+  '/dokumenty/$slug': typeof DokumentySlugRoute
+  '/doma/$category': typeof DomaCategoryRoute
+  '/doma/konfigurator': typeof DomaKonfiguratorRoute
+  '/doma/proekty': typeof DomaProektyRoute
+  '/doma/smeta': typeof DomaSmetaRoute
+  '/instruktsii/$slug': typeof InstruktsiiSlugRoute
+  '/kalkulyatory/$slug': typeof KalkulyatorySlugRoute
+  '/kalkulyatory/oboi': typeof KalkulyatoryOboiRoute
+  '/katalog/$section': typeof KatalogSectionRoute
+  '/kvartiry/$category': typeof KvartiryCategoryRoute
+  '/materialy/$slug': typeof MaterialySlugRoute
+  '/region/$slug': typeof RegionSlugRoute
+  '/sravnenie/$slug': typeof SravnenieSlugRoute
+  '/stati/$slug': typeof StatiSlugRoute
+  '/dokumenty/': typeof DokumentyIndexRoute
+  '/doma/': typeof DomaIndexRoute
+  '/instruktsii/': typeof InstruktsiiIndexRoute
+  '/kalkulyatory/': typeof KalkulyatoryIndexRoute
+  '/katalog/': typeof KatalogIndexRoute
+  '/kvartiry/': typeof KvartiryIndexRoute
+  '/materialy/': typeof MaterialyIndexRoute
+  '/region/': typeof RegionIndexRoute
+  '/stati/': typeof StatiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/o-proekte'
+    | '/poisk'
+    | '/reklama'
+    | '/remont'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/spravochnik'
+    | '/stroitelstvo'
+    | '/zayavka'
+    | '/dokumenty/$slug'
+    | '/doma/$category'
+    | '/doma/konfigurator'
+    | '/doma/proekty'
+    | '/doma/smeta'
+    | '/instruktsii/$slug'
+    | '/kalkulyatory/$slug'
+    | '/kalkulyatory/oboi'
+    | '/katalog/$section'
+    | '/kvartiry/$category'
+    | '/materialy/$slug'
+    | '/region/$slug'
+    | '/sravnenie/$slug'
+    | '/stati/$slug'
+    | '/dokumenty/'
+    | '/doma/'
+    | '/instruktsii/'
+    | '/kalkulyatory/'
+    | '/katalog/'
+    | '/kvartiry/'
+    | '/materialy/'
+    | '/region/'
+    | '/stati/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/o-proekte'
+    | '/poisk'
+    | '/reklama'
+    | '/remont'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/spravochnik'
+    | '/stroitelstvo'
+    | '/zayavka'
+    | '/dokumenty/$slug'
+    | '/doma/$category'
+    | '/doma/konfigurator'
+    | '/doma/proekty'
+    | '/doma/smeta'
+    | '/instruktsii/$slug'
+    | '/kalkulyatory/$slug'
+    | '/kalkulyatory/oboi'
+    | '/katalog/$section'
+    | '/kvartiry/$category'
+    | '/materialy/$slug'
+    | '/region/$slug'
+    | '/sravnenie/$slug'
+    | '/stati/$slug'
+    | '/dokumenty'
+    | '/doma'
+    | '/instruktsii'
+    | '/kalkulyatory'
+    | '/katalog'
+    | '/kvartiry'
+    | '/materialy'
+    | '/region'
+    | '/stati'
+  id:
+    | '__root__'
+    | '/'
+    | '/o-proekte'
+    | '/poisk'
+    | '/reklama'
+    | '/remont'
+    | '/robots.txt'
+    | '/sitemap.xml'
+    | '/spravochnik'
+    | '/stroitelstvo'
+    | '/zayavka'
+    | '/dokumenty/$slug'
+    | '/doma/$category'
+    | '/doma/konfigurator'
+    | '/doma/proekty'
+    | '/doma/smeta'
+    | '/instruktsii/$slug'
+    | '/kalkulyatory/$slug'
+    | '/kalkulyatory/oboi'
+    | '/katalog/$section'
+    | '/kvartiry/$category'
+    | '/materialy/$slug'
+    | '/region/$slug'
+    | '/sravnenie/$slug'
+    | '/stati/$slug'
+    | '/dokumenty/'
+    | '/doma/'
+    | '/instruktsii/'
+    | '/kalkulyatory/'
+    | '/katalog/'
+    | '/kvartiry/'
+    | '/materialy/'
+    | '/region/'
+    | '/stati/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  OProekteRoute: typeof OProekteRoute
+  PoiskRoute: typeof PoiskRoute
+  ReklamaRoute: typeof ReklamaRoute
+  RemontRoute: typeof RemontRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SpravochnikRoute: typeof SpravochnikRoute
+  StroitelstvoRoute: typeof StroitelstvoRoute
+  ZayavkaRoute: typeof ZayavkaRoute
+  DokumentySlugRoute: typeof DokumentySlugRoute
+  DomaCategoryRoute: typeof DomaCategoryRoute
+  DomaKonfiguratorRoute: typeof DomaKonfiguratorRoute
+  DomaProektyRoute: typeof DomaProektyRoute
+  DomaSmetaRoute: typeof DomaSmetaRoute
+  InstruktsiiSlugRoute: typeof InstruktsiiSlugRoute
+  KalkulyatorySlugRoute: typeof KalkulyatorySlugRoute
+  KalkulyatoryOboiRoute: typeof KalkulyatoryOboiRoute
+  KatalogSectionRoute: typeof KatalogSectionRoute
+  KvartiryCategoryRoute: typeof KvartiryCategoryRoute
+  MaterialySlugRoute: typeof MaterialySlugRoute
+  RegionSlugRoute: typeof RegionSlugRoute
+  SravnenieSlugRoute: typeof SravnenieSlugRoute
+  StatiSlugRoute: typeof StatiSlugRoute
+  DokumentyIndexRoute: typeof DokumentyIndexRoute
+  DomaIndexRoute: typeof DomaIndexRoute
+  InstruktsiiIndexRoute: typeof InstruktsiiIndexRoute
+  KalkulyatoryIndexRoute: typeof KalkulyatoryIndexRoute
+  KatalogIndexRoute: typeof KatalogIndexRoute
+  KvartiryIndexRoute: typeof KvartiryIndexRoute
+  MaterialyIndexRoute: typeof MaterialyIndexRoute
+  RegionIndexRoute: typeof RegionIndexRoute
+  StatiIndexRoute: typeof StatiIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +468,267 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/o-proekte': {
+      id: '/o-proekte'
+      path: '/o-proekte'
+      fullPath: '/o-proekte'
+      preLoaderRoute: typeof OProekteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poisk': {
+      id: '/poisk'
+      path: '/poisk'
+      fullPath: '/poisk'
+      preLoaderRoute: typeof PoiskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reklama': {
+      id: '/reklama'
+      path: '/reklama'
+      fullPath: '/reklama'
+      preLoaderRoute: typeof ReklamaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/remont': {
+      id: '/remont'
+      path: '/remont'
+      fullPath: '/remont'
+      preLoaderRoute: typeof RemontRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/spravochnik': {
+      id: '/spravochnik'
+      path: '/spravochnik'
+      fullPath: '/spravochnik'
+      preLoaderRoute: typeof SpravochnikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stroitelstvo': {
+      id: '/stroitelstvo'
+      path: '/stroitelstvo'
+      fullPath: '/stroitelstvo'
+      preLoaderRoute: typeof StroitelstvoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zayavka': {
+      id: '/zayavka'
+      path: '/zayavka'
+      fullPath: '/zayavka'
+      preLoaderRoute: typeof ZayavkaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dokumenty/': {
+      id: '/dokumenty/'
+      path: '/dokumenty'
+      fullPath: '/dokumenty/'
+      preLoaderRoute: typeof DokumentyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dokumenty/$slug': {
+      id: '/dokumenty/$slug'
+      path: '/dokumenty/$slug'
+      fullPath: '/dokumenty/$slug'
+      preLoaderRoute: typeof DokumentySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doma/': {
+      id: '/doma/'
+      path: '/doma'
+      fullPath: '/doma/'
+      preLoaderRoute: typeof DomaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doma/$category': {
+      id: '/doma/$category'
+      path: '/doma/$category'
+      fullPath: '/doma/$category'
+      preLoaderRoute: typeof DomaCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doma/konfigurator': {
+      id: '/doma/konfigurator'
+      path: '/doma/konfigurator'
+      fullPath: '/doma/konfigurator'
+      preLoaderRoute: typeof DomaKonfiguratorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doma/proekty': {
+      id: '/doma/proekty'
+      path: '/doma/proekty'
+      fullPath: '/doma/proekty'
+      preLoaderRoute: typeof DomaProektyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/doma/smeta': {
+      id: '/doma/smeta'
+      path: '/doma/smeta'
+      fullPath: '/doma/smeta'
+      preLoaderRoute: typeof DomaSmetaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instruktsii/': {
+      id: '/instruktsii/'
+      path: '/instruktsii'
+      fullPath: '/instruktsii/'
+      preLoaderRoute: typeof InstruktsiiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instruktsii/$slug': {
+      id: '/instruktsii/$slug'
+      path: '/instruktsii/$slug'
+      fullPath: '/instruktsii/$slug'
+      preLoaderRoute: typeof InstruktsiiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kalkulyatory/': {
+      id: '/kalkulyatory/'
+      path: '/kalkulyatory'
+      fullPath: '/kalkulyatory/'
+      preLoaderRoute: typeof KalkulyatoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kalkulyatory/$slug': {
+      id: '/kalkulyatory/$slug'
+      path: '/kalkulyatory/$slug'
+      fullPath: '/kalkulyatory/$slug'
+      preLoaderRoute: typeof KalkulyatorySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kalkulyatory/oboi': {
+      id: '/kalkulyatory/oboi'
+      path: '/kalkulyatory/oboi'
+      fullPath: '/kalkulyatory/oboi'
+      preLoaderRoute: typeof KalkulyatoryOboiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/katalog/': {
+      id: '/katalog/'
+      path: '/katalog'
+      fullPath: '/katalog/'
+      preLoaderRoute: typeof KatalogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/katalog/$section': {
+      id: '/katalog/$section'
+      path: '/katalog/$section'
+      fullPath: '/katalog/$section'
+      preLoaderRoute: typeof KatalogSectionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kvartiry/': {
+      id: '/kvartiry/'
+      path: '/kvartiry'
+      fullPath: '/kvartiry/'
+      preLoaderRoute: typeof KvartiryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kvartiry/$category': {
+      id: '/kvartiry/$category'
+      path: '/kvartiry/$category'
+      fullPath: '/kvartiry/$category'
+      preLoaderRoute: typeof KvartiryCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materialy/': {
+      id: '/materialy/'
+      path: '/materialy'
+      fullPath: '/materialy/'
+      preLoaderRoute: typeof MaterialyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materialy/$slug': {
+      id: '/materialy/$slug'
+      path: '/materialy/$slug'
+      fullPath: '/materialy/$slug'
+      preLoaderRoute: typeof MaterialySlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/region/': {
+      id: '/region/'
+      path: '/region'
+      fullPath: '/region/'
+      preLoaderRoute: typeof RegionIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/region/$slug': {
+      id: '/region/$slug'
+      path: '/region/$slug'
+      fullPath: '/region/$slug'
+      preLoaderRoute: typeof RegionSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sravnenie/$slug': {
+      id: '/sravnenie/$slug'
+      path: '/sravnenie/$slug'
+      fullPath: '/sravnenie/$slug'
+      preLoaderRoute: typeof SravnenieSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stati/': {
+      id: '/stati/'
+      path: '/stati'
+      fullPath: '/stati/'
+      preLoaderRoute: typeof StatiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stati/$slug': {
+      id: '/stati/$slug'
+      path: '/stati/$slug'
+      fullPath: '/stati/$slug'
+      preLoaderRoute: typeof StatiSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  OProekteRoute: OProekteRoute,
+  PoiskRoute: PoiskRoute,
+  ReklamaRoute: ReklamaRoute,
+  RemontRoute: RemontRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SpravochnikRoute: SpravochnikRoute,
+  StroitelstvoRoute: StroitelstvoRoute,
+  ZayavkaRoute: ZayavkaRoute,
+  DokumentySlugRoute: DokumentySlugRoute,
+  DomaCategoryRoute: DomaCategoryRoute,
+  DomaKonfiguratorRoute: DomaKonfiguratorRoute,
+  DomaProektyRoute: DomaProektyRoute,
+  DomaSmetaRoute: DomaSmetaRoute,
+  InstruktsiiSlugRoute: InstruktsiiSlugRoute,
+  KalkulyatorySlugRoute: KalkulyatorySlugRoute,
+  KalkulyatoryOboiRoute: KalkulyatoryOboiRoute,
+  KatalogSectionRoute: KatalogSectionRoute,
+  KvartiryCategoryRoute: KvartiryCategoryRoute,
+  MaterialySlugRoute: MaterialySlugRoute,
+  RegionSlugRoute: RegionSlugRoute,
+  SravnenieSlugRoute: SravnenieSlugRoute,
+  StatiSlugRoute: StatiSlugRoute,
+  DokumentyIndexRoute: DokumentyIndexRoute,
+  DomaIndexRoute: DomaIndexRoute,
+  InstruktsiiIndexRoute: InstruktsiiIndexRoute,
+  KalkulyatoryIndexRoute: KalkulyatoryIndexRoute,
+  KatalogIndexRoute: KatalogIndexRoute,
+  KvartiryIndexRoute: KvartiryIndexRoute,
+  MaterialyIndexRoute: MaterialyIndexRoute,
+  RegionIndexRoute: RegionIndexRoute,
+  StatiIndexRoute: StatiIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
