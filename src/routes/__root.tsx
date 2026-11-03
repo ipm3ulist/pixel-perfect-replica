@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { SITE } from "@/data/site";
+import { CookieConsent } from "@/components/site/CookieConsent";
 
 function NotFoundComponent() {
   return (
@@ -120,6 +121,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@type": "WebSite",
           name: SITE.name,
           inLanguage: "ru",
+          ...(SITE.url ? { url: SITE.url } : {}),
+          publisher: { "@type": "Organization", name: SITE.name },
           potentialAction: {
             "@type": "SearchAction",
             target: "/poisk?q={query}",
@@ -181,6 +184,7 @@ function RootComponent() {
         </main>
         <Footer />
       </div>
+      <CookieConsent />
     </QueryClientProvider>
   );
 }

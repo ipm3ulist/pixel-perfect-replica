@@ -14,10 +14,13 @@ import { Route as OProekteRouteImport } from './routes/o-proekte'
 import { Route as PoiskRouteImport } from './routes/poisk'
 import { Route as ReklamaRouteImport } from './routes/reklama'
 import { Route as RemontRouteImport } from './routes/remont'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SpravochnikRouteImport } from './routes/spravochnik'
 import { Route as StroitelstvoRouteImport } from './routes/stroitelstvo'
 import { Route as ZayavkaRouteImport } from './routes/zayavka'
+import { Route as DokumentyIndexRouteImport } from './routes/dokumenty.index'
+import { Route as DokumentySlugRouteImport } from './routes/dokumenty.$slug'
 import { Route as DomaIndexRouteImport } from './routes/doma.index'
 import { Route as DomaCategoryRouteImport } from './routes/doma.$category'
 import { Route as DomaKonfiguratorRouteImport } from './routes/doma.konfigurator'
@@ -65,6 +68,11 @@ const RemontRoute = RemontRouteImport.update({
   path: '/remont',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -83,6 +91,16 @@ const StroitelstvoRoute = StroitelstvoRouteImport.update({
 const ZayavkaRoute = ZayavkaRouteImport.update({
   id: '/zayavka',
   path: '/zayavka',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DokumentyIndexRoute = DokumentyIndexRouteImport.update({
+  id: '/dokumenty/',
+  path: '/dokumenty/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DokumentySlugRoute = DokumentySlugRouteImport.update({
+  id: '/dokumenty/$slug',
+  path: '/dokumenty/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DomaIndexRoute = DomaIndexRouteImport.update({
@@ -197,10 +215,12 @@ export interface FileRoutesByFullPath {
   '/poisk': typeof PoiskRoute
   '/reklama': typeof ReklamaRoute
   '/remont': typeof RemontRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spravochnik': typeof SpravochnikRoute
   '/stroitelstvo': typeof StroitelstvoRoute
   '/zayavka': typeof ZayavkaRoute
+  '/dokumenty/$slug': typeof DokumentySlugRoute
   '/doma/$category': typeof DomaCategoryRoute
   '/doma/konfigurator': typeof DomaKonfiguratorRoute
   '/doma/proekty': typeof DomaProektyRoute
@@ -214,6 +234,7 @@ export interface FileRoutesByFullPath {
   '/region/$slug': typeof RegionSlugRoute
   '/sravnenie/$slug': typeof SravnenieSlugRoute
   '/stati/$slug': typeof StatiSlugRoute
+  '/dokumenty/': typeof DokumentyIndexRoute
   '/doma/': typeof DomaIndexRoute
   '/instruktsii/': typeof InstruktsiiIndexRoute
   '/kalkulyatory/': typeof KalkulyatoryIndexRoute
@@ -229,10 +250,12 @@ export interface FileRoutesByTo {
   '/poisk': typeof PoiskRoute
   '/reklama': typeof ReklamaRoute
   '/remont': typeof RemontRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spravochnik': typeof SpravochnikRoute
   '/stroitelstvo': typeof StroitelstvoRoute
   '/zayavka': typeof ZayavkaRoute
+  '/dokumenty/$slug': typeof DokumentySlugRoute
   '/doma/$category': typeof DomaCategoryRoute
   '/doma/konfigurator': typeof DomaKonfiguratorRoute
   '/doma/proekty': typeof DomaProektyRoute
@@ -246,6 +269,7 @@ export interface FileRoutesByTo {
   '/region/$slug': typeof RegionSlugRoute
   '/sravnenie/$slug': typeof SravnenieSlugRoute
   '/stati/$slug': typeof StatiSlugRoute
+  '/dokumenty': typeof DokumentyIndexRoute
   '/doma': typeof DomaIndexRoute
   '/instruktsii': typeof InstruktsiiIndexRoute
   '/kalkulyatory': typeof KalkulyatoryIndexRoute
@@ -262,10 +286,12 @@ export interface FileRoutesById {
   '/poisk': typeof PoiskRoute
   '/reklama': typeof ReklamaRoute
   '/remont': typeof RemontRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/spravochnik': typeof SpravochnikRoute
   '/stroitelstvo': typeof StroitelstvoRoute
   '/zayavka': typeof ZayavkaRoute
+  '/dokumenty/$slug': typeof DokumentySlugRoute
   '/doma/$category': typeof DomaCategoryRoute
   '/doma/konfigurator': typeof DomaKonfiguratorRoute
   '/doma/proekty': typeof DomaProektyRoute
@@ -279,6 +305,7 @@ export interface FileRoutesById {
   '/region/$slug': typeof RegionSlugRoute
   '/sravnenie/$slug': typeof SravnenieSlugRoute
   '/stati/$slug': typeof StatiSlugRoute
+  '/dokumenty/': typeof DokumentyIndexRoute
   '/doma/': typeof DomaIndexRoute
   '/instruktsii/': typeof InstruktsiiIndexRoute
   '/kalkulyatory/': typeof KalkulyatoryIndexRoute
@@ -296,10 +323,12 @@ export interface FileRouteTypes {
     | '/poisk'
     | '/reklama'
     | '/remont'
+    | '/robots.txt'
     | '/sitemap.xml'
     | '/spravochnik'
     | '/stroitelstvo'
     | '/zayavka'
+    | '/dokumenty/$slug'
     | '/doma/$category'
     | '/doma/konfigurator'
     | '/doma/proekty'
@@ -313,6 +342,7 @@ export interface FileRouteTypes {
     | '/region/$slug'
     | '/sravnenie/$slug'
     | '/stati/$slug'
+    | '/dokumenty/'
     | '/doma/'
     | '/instruktsii/'
     | '/kalkulyatory/'
@@ -328,10 +358,12 @@ export interface FileRouteTypes {
     | '/poisk'
     | '/reklama'
     | '/remont'
+    | '/robots.txt'
     | '/sitemap.xml'
     | '/spravochnik'
     | '/stroitelstvo'
     | '/zayavka'
+    | '/dokumenty/$slug'
     | '/doma/$category'
     | '/doma/konfigurator'
     | '/doma/proekty'
@@ -345,6 +377,7 @@ export interface FileRouteTypes {
     | '/region/$slug'
     | '/sravnenie/$slug'
     | '/stati/$slug'
+    | '/dokumenty'
     | '/doma'
     | '/instruktsii'
     | '/kalkulyatory'
@@ -360,10 +393,12 @@ export interface FileRouteTypes {
     | '/poisk'
     | '/reklama'
     | '/remont'
+    | '/robots.txt'
     | '/sitemap.xml'
     | '/spravochnik'
     | '/stroitelstvo'
     | '/zayavka'
+    | '/dokumenty/$slug'
     | '/doma/$category'
     | '/doma/konfigurator'
     | '/doma/proekty'
@@ -377,6 +412,7 @@ export interface FileRouteTypes {
     | '/region/$slug'
     | '/sravnenie/$slug'
     | '/stati/$slug'
+    | '/dokumenty/'
     | '/doma/'
     | '/instruktsii/'
     | '/kalkulyatory/'
@@ -393,10 +429,12 @@ export interface RootRouteChildren {
   PoiskRoute: typeof PoiskRoute
   ReklamaRoute: typeof ReklamaRoute
   RemontRoute: typeof RemontRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpravochnikRoute: typeof SpravochnikRoute
   StroitelstvoRoute: typeof StroitelstvoRoute
   ZayavkaRoute: typeof ZayavkaRoute
+  DokumentySlugRoute: typeof DokumentySlugRoute
   DomaCategoryRoute: typeof DomaCategoryRoute
   DomaKonfiguratorRoute: typeof DomaKonfiguratorRoute
   DomaProektyRoute: typeof DomaProektyRoute
@@ -410,6 +448,7 @@ export interface RootRouteChildren {
   RegionSlugRoute: typeof RegionSlugRoute
   SravnenieSlugRoute: typeof SravnenieSlugRoute
   StatiSlugRoute: typeof StatiSlugRoute
+  DokumentyIndexRoute: typeof DokumentyIndexRoute
   DomaIndexRoute: typeof DomaIndexRoute
   InstruktsiiIndexRoute: typeof InstruktsiiIndexRoute
   KalkulyatoryIndexRoute: typeof KalkulyatoryIndexRoute
@@ -457,6 +496,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RemontRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -483,6 +529,20 @@ declare module '@tanstack/react-router' {
       path: '/zayavka'
       fullPath: '/zayavka'
       preLoaderRoute: typeof ZayavkaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dokumenty/': {
+      id: '/dokumenty/'
+      path: '/dokumenty'
+      fullPath: '/dokumenty/'
+      preLoaderRoute: typeof DokumentyIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dokumenty/$slug': {
+      id: '/dokumenty/$slug'
+      path: '/dokumenty/$slug'
+      fullPath: '/dokumenty/$slug'
+      preLoaderRoute: typeof DokumentySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/doma/': {
@@ -641,10 +701,12 @@ const rootRouteChildren: RootRouteChildren = {
   PoiskRoute: PoiskRoute,
   ReklamaRoute: ReklamaRoute,
   RemontRoute: RemontRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpravochnikRoute: SpravochnikRoute,
   StroitelstvoRoute: StroitelstvoRoute,
   ZayavkaRoute: ZayavkaRoute,
+  DokumentySlugRoute: DokumentySlugRoute,
   DomaCategoryRoute: DomaCategoryRoute,
   DomaKonfiguratorRoute: DomaKonfiguratorRoute,
   DomaProektyRoute: DomaProektyRoute,
@@ -658,6 +720,7 @@ const rootRouteChildren: RootRouteChildren = {
   RegionSlugRoute: RegionSlugRoute,
   SravnenieSlugRoute: SravnenieSlugRoute,
   StatiSlugRoute: StatiSlugRoute,
+  DokumentyIndexRoute: DokumentyIndexRoute,
   DomaIndexRoute: DomaIndexRoute,
   InstruktsiiIndexRoute: InstruktsiiIndexRoute,
   KalkulyatoryIndexRoute: KalkulyatoryIndexRoute,

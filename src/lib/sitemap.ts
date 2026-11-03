@@ -1,6 +1,8 @@
 import { CATALOG, COMPARISONS } from "@/monetization/data/catalog";
 import { ALL_CONTENT, CATEGORIES } from "@/content";
 import { publishedUrls } from "@/content/validate";
+import { LEGAL_DOCS, LEGAL_UPDATED } from "@/data/legal";
+import { REGIONS, isRegionIndexable } from "@/data/regions";
 
 /** Статические страницы со своим содержимым. /poisk исключён: это noindex-страница результатов. */
 export const STATIC_PATHS = [
@@ -24,6 +26,10 @@ export const STATIC_PATHS = [
   "/doma/konfigurator",
   "/doma/smeta",
   "/doma/proekty",
+  "/region",
+  ...REGIONS.filter(isRegionIndexable).map((r) => `/region/${r.slug}`),
+  "/dokumenty",
+  ...LEGAL_DOCS.map((d) => `/dokumenty/${d.slug}`),
 ];
 
 /**
@@ -37,6 +43,8 @@ export function sitemapEntries(): { path: string; lastmod?: string | undefined }
       const kind = c.kind === "article" ? "stati" : c.kind === "material" ? "materialy" : null;
       if (kind) dates.set(`/${kind}/${c.slug}`, c.updatedAt);
     }
+  for (const r of REGIONS) if (isRegionIndexable(r)) dates.set(`/region/${r.slug}`, r.updatedAt);
+  for (const d of LEGAL_DOCS) dates.set(`/dokumenty/${d.slug}`, LEGAL_UPDATED);
   const all = [...new Set([...STATIC_PATHS, ...publishedUrls(ALL_CONTENT, CATEGORIES)])];
   return all.map((path) => ({ path, ...(dates.has(path) ? { lastmod: dates.get(path) } : {}) }));
 }

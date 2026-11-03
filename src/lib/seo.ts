@@ -13,6 +13,9 @@ type HeadInput = {
   noindex?: boolean;
 };
 
+/** Абсолютный адрес, если задан постоянный домен (VITE_SITE_URL); иначе относительный. */
+export const abs = (p: string) => (SITE.url ? `${SITE.url}${p}` : p);
+
 const withSite = (t: string) => (t.includes(SITE.name) ? t : `${t} — ${SITE.name}`);
 
 /**
@@ -30,7 +33,10 @@ export function pageHead({
   noindex,
 }: HeadInput) {
   const full = withSite(title);
-  const scripts = [...jsonLd];
+  const scripts: Record<string, unknown>[] = [
+    { "@context": "https://schema.org", "@type": "WebPage", name: full, description, url: abs(path), inLanguage: "ru" },
+    ...jsonLd,
+  ];
   if (crumbs?.length) scripts.push(breadcrumbLd(crumbs));
   return {
     meta: [
@@ -39,13 +45,19 @@ export function pageHead({
       { property: "og:title", content: full },
       { property: "og:description", content: description },
       { property: "og:type", content: type },
-      { property: "og:url", content: path },
+      { property: "og:url", content: abs(path) },
+      ...(SITE.url
+        ? [
+            { property: "og:image", content: `${SITE.url}/og-image.jpg` },
+            { name: "twitter:image", content: `${SITE.url}/og-image.jpg` },
+          ]
+        : []),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: full },
       { name: "twitter:description", content: description },
-      ...(noindex ? [{ name: "robots", content: "noindex" }] : []),
+      ...(noindex ? [{ name: "robots", content: "noindex, follow" }] : []),
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: abs(path) }],
     scripts: scripts.map((d) => ({ type: "application/ld+json", children: JSON.stringify(d) })),
   };
 }
@@ -59,7 +71,7 @@ export function breadcrumbLd(crumbs: Crumb[]) {
       "@type": "ListItem",
       position: i + 1,
       name: c.label,
-      item: c.to,
+      item: abs(c.to),
     })),
   };
 }
@@ -75,7 +87,7 @@ export function articleLd(a: {
     "@type": "Article",
     headline: a.title,
     description: a.description,
-    mainEntityOfPage: a.path,
+    mainEntityOfPage: abs(a.path),
     inLanguage: "ru",
     ...(a.updatedAt ? { dateModified: a.updatedAt } : {}),
     publisher: { "@type": "Organization", name: SITE.name },
