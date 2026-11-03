@@ -1,3 +1,4 @@
+import { track } from "@/lib/analytics";
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowRight, Check, Printer, RotateCcw, Save } from "lucide-react";
@@ -22,8 +23,6 @@ const STEPS = [
   "Итоговая конфигурация",
 ] as const;
 
-const track = (name: string, data: Record<string, string | number>) =>
-  window.__lovableEvents?.track?.(name, data);
 
 export function HouseConfigurator({ scenario }: { scenario?: string | undefined }) {
   const uid = useId();
@@ -48,7 +47,7 @@ export function HouseConfigurator({ scenario }: { scenario?: string | undefined 
   const set = <K extends Key>(k: K, v: HouseConfig[K]) => {
     if (!started.current) {
       started.current = true;
-      track("project.calculator_used", { calculator: "house-configurator" });
+      track("configurator_used", { calculator: "house-configurator" });
     }
     setSaved("idle");
     setC((prev) => normalizeConfig({ ...prev, [k]: v }));
@@ -57,7 +56,7 @@ export function HouseConfigurator({ scenario }: { scenario?: string | undefined 
   const go = (n: number) => {
     setStep(Math.max(0, Math.min(STEPS.length - 1, n)));
     if (n === STEPS.length - 1)
-      track("project.calculator_result", { calculator: "house-configurator" });
+      track("calculation_completed", { calculator: "house-configurator" });
     topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
@@ -275,7 +274,11 @@ export function HouseConfigurator({ scenario }: { scenario?: string | undefined 
             </button>
             <button
               type="button"
-              onClick={() => setSaved(saveConfig(c) ? "ok" : "fail")}
+              onClick={() => {
+                const ok = saveConfig(c);
+                setSaved(ok ? "ok" : "fail");
+                if (ok) track("configuration_saved", { foundation: String(c.foundation ?? "") });
+              }}
               className="inline-flex h-12 items-center gap-2 bg-foreground px-5 text-sm font-semibold text-background hover:bg-primary"
             >
               {saved === "ok" ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />}{" "}
@@ -283,7 +286,10 @@ export function HouseConfigurator({ scenario }: { scenario?: string | undefined 
             </button>
             <button
               type="button"
-              onClick={() => window.print()}
+              onClick={() => {
+                track("result_printed", { source: "configurator" });
+                window.print();
+              }}
               className="inline-flex h-12 items-center gap-2 border border-border px-5 text-sm font-semibold hover:border-foreground"
             >
               <Printer className="h-4 w-4" /> Распечатать

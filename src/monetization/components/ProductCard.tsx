@@ -1,3 +1,4 @@
+import { track } from "@/lib/analytics";
 import { DEMO_STORE, STORES } from "../data/stores";
 import { displayPrice } from "../select";
 import type { Placement, Product } from "../types";
@@ -45,7 +46,7 @@ export function ProductCard({ p, placement }: { p: Product; placement: Placement
             target="_blank"
             rel="sponsored nofollow noopener"
             onClick={() =>
-              window.__lovableEvents?.track?.("project.store_clicked", {
+              track("store_clicked", {
                 store_id: p.storeId,
                 product_id: p.id,
                 section: p.section,

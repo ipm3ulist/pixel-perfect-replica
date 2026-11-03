@@ -1,3 +1,4 @@
+import { track } from "@/lib/analytics";
 import { useId, useMemo, useRef, useState } from "react";
 import { CalculatorNextStep } from "@/monetization/components/CalculatorNextStep";
 import type { CatalogSectionId } from "@/monetization/types";
@@ -19,7 +20,7 @@ export function GenericCalculator({
   const setValues: typeof setValuesRaw = (u) => {
     if (!tracked.current) {
       tracked.current = true;
-      window.__lovableEvents?.track?.("project.calculator_used", { calculator: config.slug });
+      track("calculator_used", { calculator: config.slug });
     }
     setValuesRaw(u);
   };

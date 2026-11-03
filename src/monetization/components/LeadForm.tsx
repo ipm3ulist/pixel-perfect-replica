@@ -1,3 +1,4 @@
+import { track } from "@/lib/analytics";
 import { useId, useState } from "react";
 import { z } from "zod";
 import { LEADS_ENABLED } from "../config";
@@ -51,7 +52,7 @@ export function LeadForm({ onSubmit }: { onSubmit?: (r: LeadRequest) => Promise<
     setState("sending");
     try {
       await onSubmit!(parsed.data as LeadRequest);
-      window.__lovableEvents?.track?.("project.lead_submitted", {
+      track("lead_submitted", {
         object: parsed.data.object,
         work: parsed.data.work,
       });
