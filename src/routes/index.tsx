@@ -149,16 +149,16 @@ function Index() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-background/80 via-background/40 to-transparent"
         />
-        <div className="container-page relative flex flex-col justify-start pb-10 pt-8 md:pt-12">
+        <div className="container-page relative flex flex-col justify-start pb-10 pt-6 md:pt-12">
           <p className="eyebrow">Квартиры · Частные дома</p>
-          <h1 className="mt-5 max-w-3xl text-[2rem] leading-[1.05] font-extrabold text-graphite md:text-[3.5rem]">
+          <h1 className="mt-3 max-w-3xl text-[1.75rem] leading-[1.05] font-extrabold text-graphite md:mt-5 md:text-[3.5rem]">
             Дом начинается с&nbsp;правильных решений
           </h1>
-          <p className="mt-4 max-w-xl text-base text-graphite/85 md:mt-6 md:text-lg">
+          <p className="mt-3 max-w-xl text-sm text-graphite/85 md:mt-6 md:text-lg">
             Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
             работ, материалы, расчёты и инструкции — без рекламы под видом советов.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2 md:mt-8 md:gap-3">
+          <div className="mt-5 flex flex-wrap gap-2 md:mt-8 md:gap-3">
             <a
               href="#napravlenie"
               className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm bg-primary px-3.5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark md:px-6 md:py-3.5"
