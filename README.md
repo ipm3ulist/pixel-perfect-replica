@@ -1,29 +1,56 @@
-# Welcome to your Lovable project
+# ДомКлючПро
 
-This project was built with [Lovable](https://lovable.dev).
+Независимый справочный портал о квартирах и частных домах: категории по двум направлениям, статьи, инструкции, материалы, справочник терминов и строительные калькуляторы.
 
-## Build with Lovable
+Стек: TanStack Start v1 (React 19, Vite 7, SSR), Tailwind CSS v4, сборка через Nitro под Cloudflare Workers.
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Запуск
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+bun install   # или npm i
+bun run dev   # http://localhost:8080
+bun run test  # vitest: модель контента, маршруты, формулы, sitemap, монетизация
+bun run build
 ```
 
-## Built with
+## Структура
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+| Путь | Что внутри |
+| --- | --- |
+| `src/content/` | Единая модель контента: типы, категории (`taxonomy.ts`), статьи (`articles.ts`), материалы (`materials.ts`), изображения (`images.ts`), URL (`urls.ts`), валидатор (`validate.ts`) |
+| `src/data/` | Исходные тексты разделов, инструкций, справочника и настройки сайта (`site.ts`) |
+| `src/features/wallpaper-calculator/` | Калькулятор обоев (формулы покрыты тестами) |
+| `src/features/calculators/` | Формулы и конфигурации калькуляторов краски, плитки, ламината, блоков, бетона, утеплителя |
+| `src/monetization/` | Типы и выключенные по умолчанию партнёрские блоки, рекламные слоты, заявки |
+| `src/lib/seo.ts` | Единый `pageHead()`: title, description, Open Graph, canonical, Schema.org |
+| `src/lib/sitemap.ts` | Список URL для `/sitemap.xml` из модели контента |
+| `src/routes/` | Маршруты (файловая маршрутизация TanStack Router) |
+
+## Как добавить статью
+
+1. Добавьте запись в `src/content/articles.ts` через `make({...})`: slug, заголовок, описание, категории, подкатегории, теги, связи, `updatedAt` (дата реального изменения).
+2. Запустите `bun run test` — валидатор проверит уникальность URL и SEO-заголовков, существование категорий и связей.
+3. Статья автоматически появится в категориях, поиске, sitemap и на странице «Статьи».
+
+## SEO и вебмастера
+
+- Каждая страница задаёт title, description, Open Graph, Twitter, canonical (относительный, пока нет домена) и JSON-LD (WebSite, BreadcrumbList, Article, HowTo, WebApplication).
+- `/sitemap.xml` строится из модели: только опубликованные страницы, `lastmod` — только из `updatedAt`.
+- **Яндекс Вебмастер / Google Search Console**: впишите код из мета-тега подтверждения в `SITE.verification` (`src/data/site.ts`), опубликуйте сайт, подтвердите права и добавьте `https://<домен>/sitemap.xml`.
+- После подключения постоянного домена добавьте в `public/robots.txt` строку `Sitemap: https://<домен>/sitemap.xml`.
+
+## Монетизация
+
+Всё выключено, пока нет реальных договоров. Вымышленные магазины, цены и ссылки не добавляются.
+
+- Партнёрские предложения — `PARTNER_OFFERS` в `src/monetization/config.ts`. Предложение без токена `erid` не показывается; блок помечается «Реклама» и названием рекламодателя, ссылки получают `rel="sponsored nofollow"`.
+- Рекламные слоты (`AdSlot`) — включаются флагами `ADS`.
+- Заявки исполнителям — тип `LeadRequest` и флаг `LEADS_ENABLED`; форму стоит включать вместе с политикой обработки персональных данных.
+
+## Статическая сборка и GitHub Pages
+
+Проверено 3 ноября 2026 г. в отдельной копии проекта с включённым `prerender` TanStack Start: из 14 обнаруженных страниц статически отрендерилась только главная, остальные завершились циклом перенаправлений и остались на SSR. **Сейчас проект не совместим с GitHub Pages.** Публикация работает через Lovable (Cloudflare Workers). Для GitHub Pages потребуется отдельная доработка: разобраться с перенаправлениями пререндера (слэш в конце адреса), отрендерить sitemap статически и настроить базовый путь.
+
+## Экспорт
+
+Исходный код синхронизируется с GitHub через Lovable. В архив не входят `node_modules`, `.output`, `dist`.

@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Pre-bundle up front so the dev server never re-optimizes mid-session
+  // (a re-optimize loads two React copies and breaks hooks).
+  vite: {
+    optimizeDeps: { include: ["lucide-react", "@radix-ui/react-label"] },
+  },
 });
