@@ -23,3 +23,5 @@
 - House tools live in `src/features/house/` (model → geometry → estimate, pure and tested); routes `/doma/konfigurator|smeta|proekty` only render them. Estimate lines carry quantities only; a price renders only via `isDisplayablePrice()` (status `verified` + source + region + date) and `PRICES_ENABLED` stays false until such prices exist — no demo prices ever reach users.
 - Local saving stores only house parameters (`dk.house-config.v1`), never contacts or device data; leads stay disabled until a vetted backend exists.
 - Partner program research lives in `docs/partners-ru.md`; offers enter `PARTNER_OFFERS` only with an erid.
+- Optional third-party scripts (analytics, ads) load only via `src/lib/analytics.ts` after consent from `src/lib/consent.ts`; IDs come from VITE_* env so the site works with none set.
+- Regions (`src/data/regions.ts`) and legal docs (`src/data/legal.ts`) are data-driven; a region is indexed/sitemapped only when `isRegionIndexable` (published + sourced content), so no thin SEO pages ship.
