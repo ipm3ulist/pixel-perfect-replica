@@ -131,36 +131,34 @@ function Index() {
   const latest = [...ARTICLES].reverse();
   const lead = latest.find((a) => a.image)!;
   const terms = TERM_ENTRIES.slice(-6);
-  const family = IMAGES.familyHouse;
+  const family = IMAGES.familyHouseHero;
 
   return (
     <>
-      {/* Первый экран: фото семьи в своём доме во всю ширину, заголовок поверх фото */}
-      <section className="relative isolate overflow-hidden border-b border-border bg-graphite">
+      {/* Первый экран: фото семьи во всю ширину сразу под шапкой, заголовок в небе над людьми */}
+      <section className="relative isolate min-h-[620px] overflow-hidden border-b border-border bg-background md:min-h-[680px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
         <img
           src={family.src}
           alt={family.alt}
           width={1920}
-          height={1280}
+          height={1088}
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover object-[50%_66%]"
+          className="absolute inset-0 h-full w-full object-cover object-[26%_100%] lg:object-[50%_0%]"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-graphite/92 via-graphite/60 to-graphite/20 md:bg-gradient-to-r md:from-graphite/90 md:via-graphite/55 md:to-graphite/10"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[60%] bg-gradient-to-b from-background/80 via-background/40 to-transparent"
         />
-        <div className="container-page relative flex min-h-[620px] flex-col justify-start pb-14 pt-14 md:min-h-[700px] md:justify-center md:py-28 lg:min-h-[760px]">
-          <p className="text-xs font-bold tracking-[0.14em] uppercase text-brand-bright">
-            Квартиры · Частные дома
-          </p>
-          <h1 className="mt-6 max-w-3xl text-[2.5rem] leading-[1.03] font-extrabold text-header-foreground md:text-[4.25rem]">
+        <div className="container-page relative flex flex-col justify-start pb-10 pt-8 md:pt-12">
+          <p className="eyebrow">Квартиры · Частные дома</p>
+          <h1 className="mt-5 max-w-3xl text-[2rem] leading-[1.05] font-extrabold text-graphite md:text-[3.5rem]">
             Дом начинается с&nbsp;правильных решений
           </h1>
-          <p className="mt-7 max-w-xl text-lg text-header-muted">
+          <p className="mt-4 max-w-xl text-base text-graphite/75 md:mt-6 md:text-lg">
             Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
             работ, материалы, расчёты и инструкции — без рекламы под видом советов.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
             <a
               href="#napravlenie"
               className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
@@ -169,7 +167,7 @@ function Index() {
             </a>
             <Link
               to="/kalkulyatory"
-              className="inline-flex items-center gap-2 rounded-sm border border-header-foreground/25 bg-header-foreground/10 px-6 py-3.5 text-sm font-semibold text-header-foreground backdrop-blur hover:bg-header-foreground/20"
+              className="inline-flex items-center gap-2 rounded-sm border border-graphite/20 bg-background/70 px-6 py-3.5 text-sm font-semibold text-graphite hover:bg-background"
             >
               Калькуляторы
             </Link>
