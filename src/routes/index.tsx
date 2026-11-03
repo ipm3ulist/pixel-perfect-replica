@@ -136,7 +136,7 @@ function Index() {
   return (
     <>
       {/* Первый экран: фото семьи во всю ширину сразу под шапкой, заголовок в небе над людьми */}
-      <section className="relative isolate min-h-[820px] overflow-hidden border-b border-border bg-background md:min-h-[720px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
+      <section className="relative isolate min-h-[630px] overflow-hidden border-b border-border bg-background md:min-h-[720px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
         <img
           src={family.src}
           alt={family.alt}
@@ -154,20 +154,20 @@ function Index() {
           <h1 className="mt-5 max-w-3xl text-[2rem] leading-[1.05] font-extrabold text-graphite md:text-[3.5rem]">
             Дом начинается с&nbsp;правильных решений
           </h1>
-          <p className="mt-4 max-w-xl text-base text-graphite/75 md:mt-6 md:text-lg">
+          <p className="mt-4 max-w-xl text-base text-graphite/85 md:mt-6 md:text-lg">
             Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
             работ, материалы, расчёты и инструкции — без рекламы под видом советов.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
             <a
               href="#napravlenie"
-              className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
+              className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark md:px-6 md:py-3.5"
             >
               Выбрать направление <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               to="/kalkulyatory"
-              className="inline-flex items-center gap-2 rounded-sm border border-graphite/20 bg-background/70 px-6 py-3.5 text-sm font-semibold text-graphite hover:bg-background"
+              className="inline-flex items-center gap-2 rounded-sm border border-primary/35 bg-background px-4 py-3 text-sm font-semibold text-primary hover:bg-accent hover:text-accent-foreground md:px-6 md:py-3.5"
             >
               Калькуляторы
             </Link>
