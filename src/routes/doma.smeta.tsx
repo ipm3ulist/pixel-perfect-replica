@@ -1,3 +1,4 @@
+import { track } from "@/lib/analytics";
 import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHeader } from "@/components/site/PageHeader";
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/doma/smeta")({
 function Page() {
   const [c, setC] = useState<HouseConfig>(DEFAULT_CONFIG);
   const [own, setOwn] = useState(false);
+  useEffect(() => track("estimate_viewed"), []);
   useEffect(() => {
     const s = loadConfig();
     if (s) {
