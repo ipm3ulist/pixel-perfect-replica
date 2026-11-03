@@ -136,7 +136,7 @@ function Index() {
   return (
     <>
       {/* Первый экран: фото семьи во всю ширину сразу под шапкой, заголовок в небе над людьми */}
-      <section className="relative isolate min-h-[620px] overflow-hidden border-b border-border bg-background md:min-h-[680px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
+      <section className="relative isolate min-h-[820px] overflow-hidden border-b border-border bg-background md:min-h-[720px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
         <img
           src={family.src}
           alt={family.alt}
