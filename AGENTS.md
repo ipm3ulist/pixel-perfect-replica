@@ -25,3 +25,4 @@
 - Partner program research lives in `docs/partners-ru.md`; offers enter `PARTNER_OFFERS` only with an erid.
 - Optional third-party scripts (analytics, ads) load only via `src/lib/analytics.ts` after consent from `src/lib/consent.ts`; IDs come from VITE_* env so the site works with none set.
 - Regions (`src/data/regions.ts`) and legal docs (`src/data/legal.ts`) are data-driven; a region is indexed/sitemapped only when `isRegionIndexable` (published + sourced content), so no thin SEO pages ship.
+- Brand colour lives only in the `src/styles.css` tokens (`--header`, `--primary`, `--brand-bright`, `--graphite`); chrome and controls use semantic classes (`bg-header`, `bg-primary`, `aria-pressed:bg-primary`) and never hardcoded greys, so re-skinning touches one file.

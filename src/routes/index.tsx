@@ -131,61 +131,59 @@ function Index() {
   const latest = [...ARTICLES].reverse();
   const lead = latest.find((a) => a.image)!;
   const terms = TERM_ENTRIES.slice(-6);
-  const hero = IMAGES.heroInterior;
+  const family = IMAGES.familyHouse;
 
   return (
     <>
       {/* Первый экран */}
       <section className="relative border-b border-border">
-        <div className="grid lg:min-h-[calc(100dvh-4.5rem)] lg:grid-cols-12">
-          <div className="container-page flex flex-col justify-center py-14 lg:col-span-5 lg:max-w-none lg:py-20 lg:pr-12 lg:pl-[max(2rem,calc((100vw-76rem)/2+2rem))]">
-            <p className="eyebrow">Квартиры · Частные дома</p>
-            <h1 className="mt-6 text-[2.75rem] leading-[1.02] font-extrabold md:text-[4.25rem]">
-              Дом начинается с&nbsp;правильных решений
-            </h1>
-            <p className="mt-7 max-w-md text-lg text-muted-foreground">
-              Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
-              работ, материалы, расчёты и инструкции — без рекламы под видом советов.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href="#napravlenie"
-                className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
-              >
-                Выбрать направление <ArrowRight className="h-4 w-4" />
-              </a>
-              <Link
-                to="/kalkulyatory"
-                className="inline-flex items-center gap-2 rounded-sm border border-foreground/20 px-6 py-3.5 text-sm font-semibold hover:border-foreground"
-              >
-                Калькуляторы
-              </Link>
+        <div className="container-page py-14 md:py-20">
+          <p className="eyebrow">Квартиры · Частные дома</p>
+          <h1 className="mt-6 max-w-4xl text-[2.75rem] leading-[1.02] font-extrabold md:text-[4.25rem]">
+            Дом начинается с&nbsp;правильных решений
+          </h1>
+          <p className="mt-7 max-w-xl text-lg text-muted-foreground">
+            Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
+            работ, материалы, расчёты и инструкции — без рекламы под видом советов.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a
+              href="#napravlenie"
+              className="inline-flex items-center gap-2 rounded-sm bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
+            >
+              Выбрать направление <ArrowRight className="h-4 w-4" />
+            </a>
+            <Link
+              to="/kalkulyatory"
+              className="inline-flex items-center gap-2 rounded-sm border border-primary/30 bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground hover:border-primary"
+            >
+              Калькуляторы
+            </Link>
+          </div>
+        </div>
+        <img
+          src={family.src}
+          alt={family.alt}
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+          className="aspect-[4/3] w-full object-cover md:aspect-[3/2]"
+        />
+        <div className="container-page border-t border-border py-6">
+          <dl className="grid max-w-md grid-cols-3 text-sm">
+            <div>
+              <dt className="text-muted-foreground">Статей</dt>
+              <dd className="font-display text-2xl font-bold">{ARTICLES.length}</dd>
             </div>
-            <dl className="mt-14 grid max-w-md grid-cols-3 border-t border-border pt-5 text-sm">
-              <div>
-                <dt className="text-muted-foreground">Статей</dt>
-                <dd className="font-display text-2xl font-bold">{ARTICLES.length}</dd>
-              </div>
-              <div>
-                <dt className="text-muted-foreground">Калькуляторов</dt>
-                <dd className="font-display text-2xl font-bold">{calcs.length}</dd>
-              </div>
-              <div>
-                <dt className="text-muted-foreground">Терминов</dt>
-                <dd className="font-display text-2xl font-bold">{TERM_ENTRIES.length}</dd>
-              </div>
-            </dl>
-          </div>
-          <div className="relative lg:col-span-7">
-            <img
-              src={hero.src}
-              alt={hero.alt}
-              width={1920}
-              height={1152}
-              fetchPriority="high"
-              className="aspect-[4/3] h-full w-full object-cover lg:absolute lg:inset-0 lg:aspect-auto"
-            />
-          </div>
+            <div>
+              <dt className="text-muted-foreground">Калькуляторов</dt>
+              <dd className="font-display text-2xl font-bold">{calcs.length}</dd>
+            </div>
+            <div>
+              <dt className="text-muted-foreground">Терминов</dt>
+              <dd className="font-display text-2xl font-bold">{TERM_ENTRIES.length}</dd>
+            </div>
+          </dl>
         </div>
       </section>
 

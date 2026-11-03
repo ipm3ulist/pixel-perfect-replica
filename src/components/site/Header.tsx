@@ -8,7 +8,7 @@ import { HrefLink } from "./HrefLink";
 import { Logo } from "./Logo";
 
 const linkCls =
-  "text-sm font-medium text-muted-foreground transition-colors hover:text-foreground data-[status=active]:text-foreground data-[status=active]:shadow-[inset_0_-2px_0_var(--color-primary)] py-6";
+  "text-sm font-medium text-header-muted transition-colors hover:text-header-foreground data-[status=active]:text-header-foreground data-[status=active]:shadow-[inset_0_-2px_0_var(--color-brand-bright)] py-6";
 
 const DIRS: DirectionId[] = ["kvartiry", "doma"];
 const OTHER_MAIN = MAIN_NAV.filter((n) => n.to !== "/kvartiry" && n.to !== "/doma");
@@ -114,12 +114,12 @@ export function Header() {
   return (
     <header
       ref={ref}
-      className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur"
+      className="sticky top-0 z-40 border-b border-header-line bg-header text-header-foreground"
       onMouseLeave={hoverClose}
     >
       <div className="container-page flex h-[4.5rem] items-center justify-between gap-4">
         <Link to="/" aria-label="ДомКлючПро — на главную">
-          <Logo />
+          <Logo tone="light" />
         </Link>
         <nav aria-label="Основные разделы" className="hidden items-center gap-3 xl:flex 2xl:gap-6">
           {DIRS.map((d) => (
@@ -133,7 +133,7 @@ export function Header() {
                 aria-controls={`mega-${d}`}
                 aria-label={`Категории: ${DIRECTIONS[d].title}`}
                 onClick={() => setMega((m) => (m === d ? null : d))}
-                className="ml-0.5 rounded p-1 text-muted-foreground hover:text-foreground"
+                className="ml-0.5 rounded p-1 text-header-muted hover:text-header-foreground"
               >
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${mega === d ? "rotate-180" : ""}`}
@@ -146,7 +146,7 @@ export function Header() {
               {n.label}
             </Link>
           ))}
-          <span className="h-5 w-px bg-border" />
+          <span className="h-5 w-px bg-header-foreground/25" />
           {SERVICE_NAV.map((n) => (
             <Link key={n.to} to={n.to} className={linkCls} onMouseEnter={hoverClose}>
               {n.label}
@@ -157,13 +157,13 @@ export function Header() {
           <Link
             to="/poisk"
             aria-label="Поиск"
-            className="rounded p-2.5 text-muted-foreground hover:bg-secondary hover:text-foreground"
+            className="rounded p-2.5 text-header-muted hover:bg-header-foreground/10 hover:text-header-foreground"
           >
             <Search className="h-5 w-5" />
           </Link>
           <button
             type="button"
-            className="rounded p-2.5 text-foreground hover:bg-secondary xl:hidden"
+            className="rounded p-2.5 text-header-foreground hover:bg-header-foreground/10 xl:hidden"
             aria-label={open ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -178,7 +178,7 @@ export function Header() {
         <div
           id={`mega-${mega}`}
           onMouseEnter={() => hoverOpen(mega)}
-          className="absolute inset-x-0 top-full hidden border-b border-border bg-background shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--foreground)_25%,transparent)] lg:block"
+          className="absolute inset-x-0 top-full hidden border-b border-border bg-background shadow-[0_24px_48px_-24px_color-mix(in_oklab,var(--header)_55%,transparent)] lg:block"
         >
           <MegaPanel d={mega} onNavigate={() => setMega(null)} />
         </div>
@@ -188,7 +188,7 @@ export function Header() {
         <nav
           id="mobile-menu"
           aria-label="Мобильное меню"
-          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background xl:hidden"
+          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-header-line bg-background xl:hidden"
         >
           <div className="container-page grid gap-8 py-6">
             <form role="search" action="/poisk">
@@ -199,7 +199,7 @@ export function Header() {
                 id="m-q"
                 name="q"
                 placeholder="Поиск по сайту"
-                className="h-12 w-full rounded-sm border border-input bg-card px-4 text-base outline-none focus:border-primary"
+                className="h-12 w-full rounded-sm border border-header-line bg-header px-4 text-base text-header-foreground placeholder:text-header-muted outline-none focus:border-brand-bright"
               />
             </form>
             <div className="divide-y divide-border border-y border-border">
@@ -222,7 +222,7 @@ export function Header() {
                       <li key={c.id}>
                         <HrefLink
                           href={urlFor(c)!}
-                          className="block border-l border-border py-2 pl-3 text-[0.95rem] text-muted-foreground hover:text-foreground"
+                          className="block border-l border-border py-2 pl-3 text-[0.95rem] text-muted-foreground hover:text-primary"
                         >
                           {c.title}
                         </HrefLink>

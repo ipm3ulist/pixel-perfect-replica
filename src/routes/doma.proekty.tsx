@@ -82,7 +82,7 @@ function Page() {
                 <Link
                   to="/doma/konfigurator"
                   search={{ scenario: s.slug }}
-                  className="mt-6 inline-flex h-12 items-center gap-2 bg-foreground px-6 text-sm font-semibold text-background hover:bg-primary"
+                  className="mt-6 inline-flex h-12 items-center gap-2 bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
                 >
                   Открыть в конфигураторе <ArrowRight className="h-4 w-4" />
                 </Link>

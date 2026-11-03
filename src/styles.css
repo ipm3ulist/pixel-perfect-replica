@@ -7,8 +7,9 @@
 /*
  * ДомКлючПро design system.
  * Palette (HEX reference): bg #FAF9F6, stone #EFECE6, graphite #1E2226,
- * slate text #575E66, line #DDD8CE, accent sage #60766C, accent-dark #485D53,
- * success #3D6B4F, warning #9A6B1E, error #A3352B.
+ * slate text #575E66, line #DDD8CE.
+ * Brand greens: header #004D33, primary #007E42, bright #5DC879, mint #B6E4CA,
+ * deep panels #002D1E, success #007840, warning #9A6B1E, error #A3352B.
  */
 
 @theme inline {
@@ -29,6 +30,12 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-brand-bright: var(--brand-bright);
+  --color-header: var(--header);
+  --color-header-foreground: var(--header-foreground);
+  --color-header-muted: var(--header-muted);
+  --color-header-line: var(--header-line);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -70,38 +77,44 @@
   --card-foreground: oklch(0.24 0.008 240);
   --popover: oklch(0.995 0.002 85);
   --popover-foreground: oklch(0.24 0.008 240);
-  --primary: oklch(0.48 0.055 165);
-  --primary-foreground: oklch(0.985 0.004 85);
+  --primary: oklch(0.515 0.15 152);
+  --primary-foreground: oklch(0.99 0.005 90);
+  --primary-dark: oklch(0.45 0.14 156);
+  --brand-bright: oklch(0.75 0.15 150);
+  --header: oklch(0.36 0.10 168);
+  --header-foreground: oklch(0.98 0.008 90);
+  --header-muted: oklch(0.86 0.05 162);
+  --header-line: oklch(0.46 0.09 168);
   --secondary: oklch(0.94 0.007 80);
   --secondary-foreground: oklch(0.24 0.008 240);
   --muted: oklch(0.94 0.007 80);
   --muted-foreground: oklch(0.47 0.012 245);
-  --accent: oklch(0.94 0.025 160);
-  --accent-foreground: oklch(0.38 0.055 165);
+  --accent: oklch(0.95 0.045 155);
+  --accent-foreground: oklch(0.36 0.09 165);
   --destructive: oklch(0.5 0.15 28);
   --destructive-foreground: oklch(0.985 0.004 85);
-  --success: oklch(0.48 0.07 155);
+  --success: oklch(0.50 0.13 155);
   --warning: oklch(0.55 0.11 75);
   --warning-surface: oklch(0.95 0.035 85);
   --stone: oklch(0.94 0.007 80);
-  --graphite: oklch(0.24 0.008 240);
-  --graphite-foreground: oklch(0.93 0.006 85);
+  --graphite: oklch(0.26 0.06 168);
+  --graphite-foreground: oklch(0.96 0.01 90);
   --border: oklch(0.88 0.012 85);
   --input: oklch(0.84 0.012 85);
-  --ring: oklch(0.48 0.055 165);
-  --chart-1: oklch(0.48 0.055 165);
-  --chart-2: oklch(0.48 0.07 155);
+  --ring: oklch(0.515 0.15 152);
+  --chart-1: oklch(0.515 0.15 152);
+  --chart-2: oklch(0.75 0.15 150);
   --chart-3: oklch(0.47 0.012 245);
   --chart-4: oklch(0.55 0.11 75);
   --chart-5: oklch(0.24 0.008 240);
   --sidebar: oklch(0.982 0.004 85);
   --sidebar-foreground: oklch(0.24 0.008 240);
-  --sidebar-primary: oklch(0.48 0.055 165);
-  --sidebar-primary-foreground: oklch(0.985 0.004 85);
+  --sidebar-primary: oklch(0.515 0.15 152);
+  --sidebar-primary-foreground: oklch(0.99 0.005 90);
   --sidebar-accent: oklch(0.94 0.007 80);
   --sidebar-accent-foreground: oklch(0.24 0.008 240);
   --sidebar-border: oklch(0.88 0.012 85);
-  --sidebar-ring: oklch(0.48 0.055 165);
+  --sidebar-ring: oklch(0.515 0.15 152);
 }
 
 @layer base {
@@ -246,8 +259,8 @@
   }
 
   ::selection {
-    background: oklch(0.88 0.045 160);
-    color: oklch(0.24 0.008 240);
+    background: oklch(0.88 0.07 158);
+    color: oklch(0.26 0.06 168);
   }
 }
 

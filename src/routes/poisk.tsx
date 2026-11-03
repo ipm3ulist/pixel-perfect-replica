@@ -42,7 +42,7 @@ function Chip({
       type="button"
       aria-pressed={active}
       onClick={onClick}
-      className="rounded-sm border border-border px-3 py-1.5 text-sm aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background"
+      className="rounded-sm border border-border px-3 py-1.5 text-sm aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
     >
       {children}
     </button>
