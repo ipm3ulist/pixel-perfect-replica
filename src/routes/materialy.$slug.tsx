@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { track } from "@/lib/analytics";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Blocks } from "@/components/content/Blocks";
 import { ContentRows } from "@/components/content/ContentList";
@@ -82,6 +84,7 @@ function Facts({ title, items }: { title: string; items: string[] }) {
 
 function Page() {
   const m = getMaterial(Route.useLoaderData().slug)!;
+  useEffect(() => track("material_viewed", { material: m.slug }), [m.slug]);
   const related = relatedOf(m);
   return (
     <article>
