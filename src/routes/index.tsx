@@ -136,7 +136,7 @@ function Index() {
   return (
     <>
       {/* Первый экран: фото семьи во всю ширину сразу под шапкой, заголовок в небе над людьми */}
-      <section className="relative isolate min-h-[630px] overflow-hidden border-b border-border bg-background md:min-h-[720px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
+      <section className="relative isolate min-h-[550px] overflow-hidden border-b border-border bg-background md:min-h-[720px] lg:aspect-[16/9] lg:max-h-[1100px] lg:min-h-0">
         <img
           src={family.src}
           alt={family.alt}
@@ -158,16 +158,16 @@ function Index() {
             Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
             работ, материалы, расчёты и инструкции — без рекламы под видом советов.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 md:mt-8">
+          <div className="mt-6 flex flex-wrap gap-2 md:mt-8 md:gap-3">
             <a
               href="#napravlenie"
-              className="inline-flex items-center gap-2 rounded-sm bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark md:px-6 md:py-3.5"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm bg-primary px-3.5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark md:px-6 md:py-3.5"
             >
               Выбрать направление <ArrowRight className="h-4 w-4" />
             </a>
             <Link
               to="/kalkulyatory"
-              className="inline-flex items-center gap-2 rounded-sm border border-primary/35 bg-background px-4 py-3 text-sm font-semibold text-primary hover:bg-accent hover:text-accent-foreground md:px-6 md:py-3.5"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm border border-primary/35 bg-background px-3.5 py-3 text-sm font-semibold text-primary hover:bg-accent hover:text-accent-foreground md:px-6 md:py-3.5"
             >
               Калькуляторы
             </Link>
