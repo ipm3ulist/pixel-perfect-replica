@@ -34,7 +34,9 @@ const PII_KEY =
   /name|имя|phone|tel|телефон|mail|почт|contact|контакт|address|адрес|city|город|description|описан|message|comment/i;
 const PII_VALUE = /@|\+?\d[\d\s()-]{8,}\d/;
 
-export function sanitize(params: Record<string, unknown> = {}): Record<string, string | number | boolean> {
+export function sanitize(
+  params: Record<string, unknown> = {},
+): Record<string, string | number | boolean> {
   const out: Record<string, string | number | boolean> = {};
   for (const [k, v] of Object.entries(params)) {
     if (PII_KEY.test(k)) continue;

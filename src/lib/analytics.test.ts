@@ -30,7 +30,14 @@ describe("consent", () => {
 describe("analytics sanitize", () => {
   it("drops personal data", () => {
     expect(
-      sanitize({ name: "Иван", phone: "+7 900 123-45-67", email: "a@b.ru", city: "Тула", calculator: "plitka", note: "x@y.ru" }),
+      sanitize({
+        name: "Иван",
+        phone: "+7 900 123-45-67",
+        email: "a@b.ru",
+        city: "Тула",
+        calculator: "plitka",
+        note: "x@y.ru",
+      }),
     ).toEqual({ calculator: "plitka" });
   });
 });

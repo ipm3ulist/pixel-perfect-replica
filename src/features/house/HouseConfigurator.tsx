@@ -23,7 +23,6 @@ const STEPS = [
   "Итоговая конфигурация",
 ] as const;
 
-
 export function HouseConfigurator({ scenario }: { scenario?: string | undefined }) {
   const uid = useId();
   const [c, setC] = useState<HouseConfig>(DEFAULT_CONFIG);

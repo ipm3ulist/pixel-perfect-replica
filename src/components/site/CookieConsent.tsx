@@ -57,7 +57,11 @@ export function CookieConsent() {
             <p className="max-w-2xl text-sm">
               Сайт использует необходимые cookies для работы и сохранения ваших настроек. С вашего
               согласия мы также подключим аналитику, чтобы понимать, какие материалы полезны.{" "}
-              <Link to="/dokumenty/$slug" params={{ slug: "politika-cookies" }} className="underline">
+              <Link
+                to="/dokumenty/$slug"
+                params={{ slug: "politika-cookies" }}
+                className="underline"
+              >
                 Подробнее
               </Link>
             </p>
@@ -83,7 +87,12 @@ export function CookieConsent() {
             подвале сайта.
           </DialogDescription>
           <div className="mt-2 divide-y divide-border border-y border-border">
-            <Row title="Необходимые" text="Работа сайта, ваш выбор по cookies, сохранённые настройки." checked disabled />
+            <Row
+              title="Необходимые"
+              text="Работа сайта, ваш выбор по cookies, сохранённые настройки."
+              checked
+              disabled
+            />
             <Row
               title="Аналитические"
               text="Яндекс Метрика и Google Analytics 4 — обезличенная статистика посещений."

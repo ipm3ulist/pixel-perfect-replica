@@ -11,8 +11,7 @@ describe("regions", () => {
   it("regions without verified content stay out of the sitemap", () => {
     const paths = sitemapEntries().map((e) => e.path);
     expect(paths).toContain("/region");
-    for (const r of REGIONS)
-      expect(paths.includes(`/region/${r.slug}`)).toBe(isRegionIndexable(r));
+    for (const r of REGIONS) expect(paths.includes(`/region/${r.slug}`)).toBe(isRegionIndexable(r));
   });
   it("legal pages are in the sitemap", () => {
     const paths = sitemapEntries().map((e) => e.path);

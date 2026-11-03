@@ -146,7 +146,9 @@ function Page() {
           <p className="mt-12 text-sm text-muted-foreground">Обновлено {fmt(r.updatedAt)}</p>
         </article>
         <aside>
-          <h2 className="font-display text-sm font-bold tracking-wider uppercase">Разделы о домах</h2>
+          <h2 className="font-display text-sm font-bold tracking-wider uppercase">
+            Разделы о домах
+          </h2>
           <ul className="mt-4 space-y-2">
             {cats.map((x) => (
               <li key={x.id}>

@@ -42,8 +42,8 @@ export function RegionMap({
           <span className="h-3 w-3 bg-primary" /> Выбранный регион
         </span>
         <span className="flex items-center gap-2">
-          <span className="h-3 w-3 border border-dashed border-muted-foreground bg-stone" /> Материалы
-          готовятся
+          <span className="h-3 w-3 border border-dashed border-muted-foreground bg-stone" />{" "}
+          Материалы готовятся
         </span>
         <span>Схема, не в масштабе: положение ячеек условно.</span>
       </figcaption>

@@ -34,7 +34,14 @@ export function pageHead({
 }: HeadInput) {
   const full = withSite(title);
   const scripts: Record<string, unknown>[] = [
-    { "@context": "https://schema.org", "@type": "WebPage", name: full, description, url: abs(path), inLanguage: "ru" },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: full,
+      description,
+      url: abs(path),
+      inLanguage: "ru",
+    },
     ...jsonLd,
   ];
   if (crumbs?.length) scripts.push(breadcrumbLd(crumbs));
