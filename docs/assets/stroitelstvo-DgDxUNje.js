@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-BkSabwWG.js";import{N as t}from"./index-Cnu7ogoG.js";var n=e(),r=()=>(0,n.jsx)(t,{slug:`stroitelstvo`});export{r as component};
