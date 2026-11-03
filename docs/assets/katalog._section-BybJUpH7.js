@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-BkSabwWG.js";import{t}from"./link-BoC0r_CN.js";var n=e(),r=()=>(0,n.jsxs)(`div`,{className:`container-page py-24`,children:[(0,n.jsx)(`h1`,{className:`text-4xl`,children:`Раздел не найден`}),(0,n.jsx)(t,{to:`/katalog`,className:`mt-6 inline-block font-semibold underline`,children:`Весь каталог`})]});export{r as notFoundComponent};

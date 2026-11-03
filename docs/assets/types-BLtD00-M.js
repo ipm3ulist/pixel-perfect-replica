@@ -1,0 +1,1 @@
+var e={steny:`Стеновые материалы`,uteplenie:`Утеплители`,otdelka:`Отделка`,poly:`Напольные покрытия`};export{e as t};

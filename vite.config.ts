@@ -3,7 +3,6 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
-
     pages: [
       { path: "/" },
       { path: "/kvartiry" },
@@ -20,7 +19,6 @@ export default defineConfig({
       { path: "/region" },
       { path: "/dokumenty" },
     ],
-
     prerender: {
       enabled: true,
       crawlLinks: true,
@@ -28,8 +26,10 @@ export default defineConfig({
       failOnError: true,
     },
   },
-
   vite: {
+    base: process.env["GITHUB_PAGES"] === "true"
+      ? "/pixel-perfect-replica/"
+      : "/",
     optimizeDeps: {
       include: ["lucide-react", "@radix-ui/react-label"],
     },

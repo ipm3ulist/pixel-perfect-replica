@@ -1,0 +1,1 @@
+var e=[],t={"article-inline":!1,"article-aside":!1,"category-bottom":!1};export{e as n,t};

@@ -1,0 +1,1 @@
+function e(e){if(`direction`in e)return`/${e.direction}/${e.slug}`;switch(e.kind){case`article`:return`/stati/${e.slug}`;case`guide`:return`/instruktsii/${e.slug}`;case`material`:return`/materialy/${e.slug}`;case`term`:return`/spravochnik#${e.slug}`;case`calculator`:return e.status===`published`?`/kalkulyatory/${e.slug}`:null}}export{e as t};

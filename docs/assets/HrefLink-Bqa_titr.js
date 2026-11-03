@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-BkSabwWG.js";import{t}from"./link-BoC0r_CN.js";var n=e();function r({href:e,...r}){let[i,a]=e.split(`#`);return(0,n.jsx)(t,{...r,to:i,...a?{hash:a}:{}})}export{r as t};

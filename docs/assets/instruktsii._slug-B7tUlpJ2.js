@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-BkSabwWG.js";var t=e(),n=()=>(0,t.jsx)(`div`,{className:`container-page py-24`,children:`Не удалось загрузить инструкцию.`});export{n as errorComponent};
