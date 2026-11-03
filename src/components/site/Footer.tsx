@@ -7,11 +7,11 @@ import { openCookieSettings } from "@/lib/consent";
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-graphite text-graphite-foreground">
+    <footer className="mt-24 bg-header text-header-foreground">
       <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-3">
-            <LogoMark className="h-10 w-10" />
+            <LogoMark tone="light" className="h-10 w-10" />
             <span className="font-display text-xl font-extrabold">ДомКлючПро</span>
           </div>
           <p className="mt-4 max-w-xs text-sm opacity-75">{SITE.tagline}.</p>
@@ -55,7 +55,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-graphite-foreground/15">
+      <div className="border-t border-header-line">
         <div className="container-page flex flex-col gap-2 py-6 text-xs opacity-60 md:flex-row md:justify-between">
           <p>
             © {new Date().getFullYear()} {SITE.name}

@@ -4,6 +4,7 @@
  */
 import heroHouse from "@/assets/hero-house.jpg";
 import heroInterior from "@/assets/hero-interior.jpg";
+import familyHouse from "@/assets/family-house.jpg";
 import apartment from "@/assets/direction-apartment.jpg";
 import house from "@/assets/direction-house.jpg";
 import materials from "@/assets/materials.jpg";
@@ -21,6 +22,10 @@ export const IMAGES = {
     alt: "Светлая гостиная загородного дома с панорамным окном, штукатуренными стенами и дубовым полом",
   },
   heroHouse: { src: heroHouse, alt: "Светлый частный дом с чистой архитектурой" },
+  familyHouse: {
+    src: familyHouse,
+    alt: "Современный двухэтажный дом с деревянным фасадом и большими окнами, к которому по дорожке идёт семья: мама, папа, дочь и сын",
+  },
   apartment: {
     src: apartment,
     alt: "Отремонтированная квартира в старом доме: паркет ёлочкой, высокие окна, спокойные серые стены",

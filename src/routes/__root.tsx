@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Практичные материалы о квартирах, домах, строительстве, ремонте и материалах. Калькуляторы, инструкции и справочник.",
       },
       { name: "author", content: "ДомКлючПро" },
-      { name: "theme-color", content: "#FAF9F6" },
+      { name: "theme-color", content: "#004D33" },
       { property: "og:site_name", content: "ДомКлючПро" },
       { property: "og:locale", content: "ru_RU" },
       { property: "og:title", content: "ДомКлючПро — строительство, ремонт и обустройство жилья" },
