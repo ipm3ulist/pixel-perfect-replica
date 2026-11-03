@@ -60,7 +60,7 @@ export function GenericCalculator({
                   {f.options.map((o) => (
                     <label
                       key={o.value}
-                      className="cursor-pointer rounded-sm border border-border px-4 py-2 text-sm has-checked:border-foreground has-checked:bg-foreground has-checked:text-background"
+                      className="cursor-pointer rounded-sm border border-border px-4 py-2 text-sm has-checked:border-primary has-checked:bg-primary has-checked:text-primary-foreground"
                     >
                       <input
                         type="radio"

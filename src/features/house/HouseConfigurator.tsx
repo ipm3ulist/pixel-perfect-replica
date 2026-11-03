@@ -222,7 +222,7 @@ export function HouseConfigurator({ scenario }: { scenario?: string | undefined 
               )}
               <button
                 type="submit"
-                className="inline-flex h-12 items-center gap-2 bg-foreground px-6 text-sm font-semibold text-background hover:bg-primary"
+                className="inline-flex h-12 items-center gap-2 bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
               >
                 Далее <ArrowRight className="h-4 w-4" />
               </button>
@@ -278,7 +278,7 @@ export function HouseConfigurator({ scenario }: { scenario?: string | undefined 
                 setSaved(ok ? "ok" : "fail");
                 if (ok) track("configuration_saved", { foundation: String(c.foundation ?? "") });
               }}
-              className="inline-flex h-12 items-center gap-2 bg-foreground px-5 text-sm font-semibold text-background hover:bg-primary"
+              className="inline-flex h-12 items-center gap-2 bg-primary px-5 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
             >
               {saved === "ok" ? <Check className="h-4 w-4" /> : <Save className="h-4 w-4" />}{" "}
               {saved === "ok" ? "Сохранено в этом браузере" : "Сохранить в браузере"}
@@ -478,7 +478,7 @@ function Choice({
         {Object.entries(options).map(([v, l]) => (
           <label
             key={v}
-            className="cursor-pointer rounded-sm border border-border px-4 py-2.5 text-sm has-checked:border-foreground has-checked:bg-foreground has-checked:text-background has-focus-visible:outline-2 has-focus-visible:outline-ring"
+            className="cursor-pointer rounded-sm border border-border px-4 py-2.5 text-sm has-checked:border-primary has-checked:bg-primary has-checked:text-primary-foreground has-focus-visible:outline-2 has-focus-visible:outline-ring"
           >
             <input
               type="radio"

@@ -39,7 +39,7 @@ function Page() {
               type="button"
               aria-pressed={dir === d}
               onClick={() => setDir(d)}
-              className="rounded-sm border border-border px-4 py-2 text-sm font-semibold aria-pressed:border-foreground aria-pressed:bg-foreground aria-pressed:text-background"
+              className="rounded-sm border border-border px-4 py-2 text-sm font-semibold aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground"
             >
               {d === "all" ? "Все" : DIRECTIONS[d].title}
             </button>
