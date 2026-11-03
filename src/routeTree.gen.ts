@@ -34,6 +34,8 @@ import { Route as KvartiryIndexRouteImport } from './routes/kvartiry.index'
 import { Route as KvartiryCategoryRouteImport } from './routes/kvartiry.$category'
 import { Route as MaterialyIndexRouteImport } from './routes/materialy.index'
 import { Route as MaterialySlugRouteImport } from './routes/materialy.$slug'
+import { Route as RegionIndexRouteImport } from './routes/region.index'
+import { Route as RegionSlugRouteImport } from './routes/region.$slug'
 import { Route as SravnenieSlugRouteImport } from './routes/sravnenie.$slug'
 import { Route as StatiIndexRouteImport } from './routes/stati.index'
 import { Route as StatiSlugRouteImport } from './routes/stati.$slug'
@@ -163,6 +165,16 @@ const MaterialySlugRoute = MaterialySlugRouteImport.update({
   path: '/materialy/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegionIndexRoute = RegionIndexRouteImport.update({
+  id: '/region/',
+  path: '/region/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegionSlugRoute = RegionSlugRouteImport.update({
+  id: '/region/$slug',
+  path: '/region/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SravnenieSlugRoute = SravnenieSlugRouteImport.update({
   id: '/sravnenie/$slug',
   path: '/sravnenie/$slug',
@@ -199,6 +211,7 @@ export interface FileRoutesByFullPath {
   '/katalog/$section': typeof KatalogSectionRoute
   '/kvartiry/$category': typeof KvartiryCategoryRoute
   '/materialy/$slug': typeof MaterialySlugRoute
+  '/region/$slug': typeof RegionSlugRoute
   '/sravnenie/$slug': typeof SravnenieSlugRoute
   '/stati/$slug': typeof StatiSlugRoute
   '/doma/': typeof DomaIndexRoute
@@ -207,6 +220,7 @@ export interface FileRoutesByFullPath {
   '/katalog/': typeof KatalogIndexRoute
   '/kvartiry/': typeof KvartiryIndexRoute
   '/materialy/': typeof MaterialyIndexRoute
+  '/region/': typeof RegionIndexRoute
   '/stati/': typeof StatiIndexRoute
 }
 export interface FileRoutesByTo {
@@ -229,6 +243,7 @@ export interface FileRoutesByTo {
   '/katalog/$section': typeof KatalogSectionRoute
   '/kvartiry/$category': typeof KvartiryCategoryRoute
   '/materialy/$slug': typeof MaterialySlugRoute
+  '/region/$slug': typeof RegionSlugRoute
   '/sravnenie/$slug': typeof SravnenieSlugRoute
   '/stati/$slug': typeof StatiSlugRoute
   '/doma': typeof DomaIndexRoute
@@ -237,6 +252,7 @@ export interface FileRoutesByTo {
   '/katalog': typeof KatalogIndexRoute
   '/kvartiry': typeof KvartiryIndexRoute
   '/materialy': typeof MaterialyIndexRoute
+  '/region': typeof RegionIndexRoute
   '/stati': typeof StatiIndexRoute
 }
 export interface FileRoutesById {
@@ -260,6 +276,7 @@ export interface FileRoutesById {
   '/katalog/$section': typeof KatalogSectionRoute
   '/kvartiry/$category': typeof KvartiryCategoryRoute
   '/materialy/$slug': typeof MaterialySlugRoute
+  '/region/$slug': typeof RegionSlugRoute
   '/sravnenie/$slug': typeof SravnenieSlugRoute
   '/stati/$slug': typeof StatiSlugRoute
   '/doma/': typeof DomaIndexRoute
@@ -268,6 +285,7 @@ export interface FileRoutesById {
   '/katalog/': typeof KatalogIndexRoute
   '/kvartiry/': typeof KvartiryIndexRoute
   '/materialy/': typeof MaterialyIndexRoute
+  '/region/': typeof RegionIndexRoute
   '/stati/': typeof StatiIndexRoute
 }
 export interface FileRouteTypes {
@@ -292,6 +310,7 @@ export interface FileRouteTypes {
     | '/katalog/$section'
     | '/kvartiry/$category'
     | '/materialy/$slug'
+    | '/region/$slug'
     | '/sravnenie/$slug'
     | '/stati/$slug'
     | '/doma/'
@@ -300,6 +319,7 @@ export interface FileRouteTypes {
     | '/katalog/'
     | '/kvartiry/'
     | '/materialy/'
+    | '/region/'
     | '/stati/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -322,6 +342,7 @@ export interface FileRouteTypes {
     | '/katalog/$section'
     | '/kvartiry/$category'
     | '/materialy/$slug'
+    | '/region/$slug'
     | '/sravnenie/$slug'
     | '/stati/$slug'
     | '/doma'
@@ -330,6 +351,7 @@ export interface FileRouteTypes {
     | '/katalog'
     | '/kvartiry'
     | '/materialy'
+    | '/region'
     | '/stati'
   id:
     | '__root__'
@@ -352,6 +374,7 @@ export interface FileRouteTypes {
     | '/katalog/$section'
     | '/kvartiry/$category'
     | '/materialy/$slug'
+    | '/region/$slug'
     | '/sravnenie/$slug'
     | '/stati/$slug'
     | '/doma/'
@@ -360,6 +383,7 @@ export interface FileRouteTypes {
     | '/katalog/'
     | '/kvartiry/'
     | '/materialy/'
+    | '/region/'
     | '/stati/'
   fileRoutesById: FileRoutesById
 }
@@ -383,6 +407,7 @@ export interface RootRouteChildren {
   KatalogSectionRoute: typeof KatalogSectionRoute
   KvartiryCategoryRoute: typeof KvartiryCategoryRoute
   MaterialySlugRoute: typeof MaterialySlugRoute
+  RegionSlugRoute: typeof RegionSlugRoute
   SravnenieSlugRoute: typeof SravnenieSlugRoute
   StatiSlugRoute: typeof StatiSlugRoute
   DomaIndexRoute: typeof DomaIndexRoute
@@ -391,6 +416,7 @@ export interface RootRouteChildren {
   KatalogIndexRoute: typeof KatalogIndexRoute
   KvartiryIndexRoute: typeof KvartiryIndexRoute
   MaterialyIndexRoute: typeof MaterialyIndexRoute
+  RegionIndexRoute: typeof RegionIndexRoute
   StatiIndexRoute: typeof StatiIndexRoute
 }
 
@@ -571,6 +597,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MaterialySlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/region/': {
+      id: '/region/'
+      path: '/region'
+      fullPath: '/region/'
+      preLoaderRoute: typeof RegionIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/region/$slug': {
+      id: '/region/$slug'
+      path: '/region/$slug'
+      fullPath: '/region/$slug'
+      preLoaderRoute: typeof RegionSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sravnenie/$slug': {
       id: '/sravnenie/$slug'
       path: '/sravnenie/$slug'
@@ -615,6 +655,7 @@ const rootRouteChildren: RootRouteChildren = {
   KatalogSectionRoute: KatalogSectionRoute,
   KvartiryCategoryRoute: KvartiryCategoryRoute,
   MaterialySlugRoute: MaterialySlugRoute,
+  RegionSlugRoute: RegionSlugRoute,
   SravnenieSlugRoute: SravnenieSlugRoute,
   StatiSlugRoute: StatiSlugRoute,
   DomaIndexRoute: DomaIndexRoute,
@@ -623,6 +664,7 @@ const rootRouteChildren: RootRouteChildren = {
   KatalogIndexRoute: KatalogIndexRoute,
   KvartiryIndexRoute: KvartiryIndexRoute,
   MaterialyIndexRoute: MaterialyIndexRoute,
+  RegionIndexRoute: RegionIndexRoute,
   StatiIndexRoute: StatiIndexRoute,
 }
 export const routeTree = rootRouteImport
