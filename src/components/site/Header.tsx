@@ -117,11 +117,11 @@ export function Header() {
       className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur"
       onMouseLeave={hoverClose}
     >
-      <div className="container-page flex h-[4.5rem] items-center justify-between gap-6">
+      <div className="container-page flex h-[4.5rem] items-center justify-between gap-4">
         <Link to="/" aria-label="ДомКлючПро — на главную">
           <Logo />
         </Link>
-        <nav aria-label="Основные разделы" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Основные разделы" className="hidden items-center gap-3 lg:flex xl:gap-4 2xl:gap-6">
           {DIRS.map((d) => (
             <div key={d} className="flex items-center" onMouseEnter={() => hoverOpen(d)}>
               <Link to={`/${d}`} className={linkCls}>
