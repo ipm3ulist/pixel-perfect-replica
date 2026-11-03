@@ -121,7 +121,7 @@ export function Header() {
         <Link to="/" aria-label="ДомКлючПро — на главную">
           <Logo />
         </Link>
-        <nav aria-label="Основные разделы" className="hidden items-center gap-3 lg:flex xl:gap-4 2xl:gap-6">
+        <nav aria-label="Основные разделы" className="hidden items-center gap-3 xl:flex 2xl:gap-6">
           {DIRS.map((d) => (
             <div key={d} className="flex items-center" onMouseEnter={() => hoverOpen(d)}>
               <Link to={`/${d}`} className={linkCls}>
@@ -163,7 +163,7 @@ export function Header() {
           </Link>
           <button
             type="button"
-            className="rounded p-2.5 text-foreground hover:bg-secondary lg:hidden"
+            className="rounded p-2.5 text-foreground hover:bg-secondary xl:hidden"
             aria-label={open ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -188,7 +188,7 @@ export function Header() {
         <nav
           id="mobile-menu"
           aria-label="Мобильное меню"
-          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background lg:hidden"
+          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background xl:hidden"
         >
           <div className="container-page grid gap-8 py-6">
             <form role="search" action="/poisk">
