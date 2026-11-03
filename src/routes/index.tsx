@@ -135,14 +135,28 @@ function Index() {
 
   return (
     <>
-      {/* Первый экран */}
-      <section className="relative border-b border-border">
-        <div className="container-page py-14 md:py-20">
-          <p className="eyebrow">Квартиры · Частные дома</p>
-          <h1 className="mt-6 max-w-4xl text-[2.75rem] leading-[1.02] font-extrabold md:text-[4.25rem]">
+      {/* Первый экран: фото семьи в своём доме во всю ширину, заголовок поверх фото */}
+      <section className="relative isolate overflow-hidden border-b border-border bg-graphite">
+        <img
+          src={family.src}
+          alt={family.alt}
+          width={1920}
+          height={1280}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_66%]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-graphite/92 via-graphite/60 to-graphite/35 md:bg-gradient-to-r md:from-graphite/90 md:via-graphite/55 md:to-graphite/10"
+        />
+        <div className="container-page relative flex min-h-[620px] flex-col justify-end pb-12 pt-20 md:min-h-[700px] md:justify-center md:py-28 lg:min-h-[760px]">
+          <p className="text-xs font-bold tracking-[0.14em] uppercase text-brand-bright">
+            Квартиры · Частные дома
+          </p>
+          <h1 className="mt-6 max-w-3xl text-[2.5rem] leading-[1.03] font-extrabold text-header-foreground md:text-[4.25rem]">
             Дом начинается с&nbsp;правильных решений
           </h1>
-          <p className="mt-7 max-w-xl text-lg text-muted-foreground">
+          <p className="mt-7 max-w-xl text-lg text-header-muted">
             Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
             работ, материалы, расчёты и инструкции — без рекламы под видом советов.
           </p>
@@ -155,21 +169,17 @@ function Index() {
             </a>
             <Link
               to="/kalkulyatory"
-              className="inline-flex items-center gap-2 rounded-sm border border-primary/30 bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground hover:border-primary"
+              className="inline-flex items-center gap-2 rounded-sm border border-header-foreground/25 bg-header-foreground/10 px-6 py-3.5 text-sm font-semibold text-header-foreground backdrop-blur hover:bg-header-foreground/20"
             >
               Калькуляторы
             </Link>
           </div>
         </div>
-        <img
-          src={family.src}
-          alt={family.alt}
-          width={1920}
-          height={1280}
-          fetchPriority="high"
-          className="aspect-[4/3] w-full object-cover md:aspect-[3/2]"
-        />
-        <div className="container-page border-t border-border py-6">
+      </section>
+
+      {/* Показатели */}
+      <div className="border-b border-border">
+        <div className="container-page py-6">
           <dl className="grid max-w-md grid-cols-3 text-sm">
             <div>
               <dt className="text-muted-foreground">Статей</dt>
@@ -185,7 +195,7 @@ function Index() {
             </div>
           </dl>
         </div>
-      </section>
+      </div>
 
       {/* Что вы планируете */}
       <section
