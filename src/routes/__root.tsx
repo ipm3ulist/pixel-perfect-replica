@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
+import { BackLink } from "@/components/site/BackLink";
 import { Footer } from "@/components/site/Footer";
 import { SITE } from "@/data/site";
 import { CookieConsent } from "@/components/site/CookieConsent";
@@ -179,6 +180,7 @@ function RootComponent() {
       </a>
       <div className="flex min-h-screen flex-col">
         <Header />
+        <BackLink />
         <main id="main" className="flex-1">
           <Outlet />
         </main>
