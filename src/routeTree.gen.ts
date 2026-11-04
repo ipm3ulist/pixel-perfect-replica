@@ -42,6 +42,8 @@ import { Route as RegionSlugRouteImport } from './routes/region.$slug'
 import { Route as SravnenieSlugRouteImport } from './routes/sravnenie.$slug'
 import { Route as StatiIndexRouteImport } from './routes/stati.index'
 import { Route as StatiSlugRouteImport } from './routes/stati.$slug'
+import { Route as KvartiryPomeshcheniyaIndexRouteImport } from './routes/kvartiry.pomeshcheniya.index'
+import { Route as KvartiryPomeshcheniyaRoomRouteImport } from './routes/kvartiry.pomeshcheniya.$room'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -208,6 +210,18 @@ const StatiSlugRoute = StatiSlugRouteImport.update({
   path: '/stati/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KvartiryPomeshcheniyaIndexRoute =
+  KvartiryPomeshcheniyaIndexRouteImport.update({
+    id: '/kvartiry/pomeshcheniya/',
+    path: '/kvartiry/pomeshcheniya/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const KvartiryPomeshcheniyaRoomRoute =
+  KvartiryPomeshcheniyaRoomRouteImport.update({
+    id: '/kvartiry/pomeshcheniya/$room',
+    path: '/kvartiry/pomeshcheniya/$room',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -243,6 +257,8 @@ export interface FileRoutesByFullPath {
   '/materialy/': typeof MaterialyIndexRoute
   '/region/': typeof RegionIndexRoute
   '/stati/': typeof StatiIndexRoute
+  '/kvartiry/pomeshcheniya/$room': typeof KvartiryPomeshcheniyaRoomRoute
+  '/kvartiry/pomeshcheniya/': typeof KvartiryPomeshcheniyaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -278,6 +294,8 @@ export interface FileRoutesByTo {
   '/materialy': typeof MaterialyIndexRoute
   '/region': typeof RegionIndexRoute
   '/stati': typeof StatiIndexRoute
+  '/kvartiry/pomeshcheniya/$room': typeof KvartiryPomeshcheniyaRoomRoute
+  '/kvartiry/pomeshcheniya': typeof KvartiryPomeshcheniyaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -314,6 +332,8 @@ export interface FileRoutesById {
   '/materialy/': typeof MaterialyIndexRoute
   '/region/': typeof RegionIndexRoute
   '/stati/': typeof StatiIndexRoute
+  '/kvartiry/pomeshcheniya/$room': typeof KvartiryPomeshcheniyaRoomRoute
+  '/kvartiry/pomeshcheniya/': typeof KvartiryPomeshcheniyaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -351,6 +371,8 @@ export interface FileRouteTypes {
     | '/materialy/'
     | '/region/'
     | '/stati/'
+    | '/kvartiry/pomeshcheniya/$room'
+    | '/kvartiry/pomeshcheniya/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -386,6 +408,8 @@ export interface FileRouteTypes {
     | '/materialy'
     | '/region'
     | '/stati'
+    | '/kvartiry/pomeshcheniya/$room'
+    | '/kvartiry/pomeshcheniya'
   id:
     | '__root__'
     | '/'
@@ -421,6 +445,8 @@ export interface FileRouteTypes {
     | '/materialy/'
     | '/region/'
     | '/stati/'
+    | '/kvartiry/pomeshcheniya/$room'
+    | '/kvartiry/pomeshcheniya/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -457,6 +483,8 @@ export interface RootRouteChildren {
   MaterialyIndexRoute: typeof MaterialyIndexRoute
   RegionIndexRoute: typeof RegionIndexRoute
   StatiIndexRoute: typeof StatiIndexRoute
+  KvartiryPomeshcheniyaRoomRoute: typeof KvartiryPomeshcheniyaRoomRoute
+  KvartiryPomeshcheniyaIndexRoute: typeof KvartiryPomeshcheniyaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -692,6 +720,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StatiSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kvartiry/pomeshcheniya/': {
+      id: '/kvartiry/pomeshcheniya/'
+      path: '/kvartiry/pomeshcheniya'
+      fullPath: '/kvartiry/pomeshcheniya/'
+      preLoaderRoute: typeof KvartiryPomeshcheniyaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kvartiry/pomeshcheniya/$room': {
+      id: '/kvartiry/pomeshcheniya/$room'
+      path: '/kvartiry/pomeshcheniya/$room'
+      fullPath: '/kvartiry/pomeshcheniya/$room'
+      preLoaderRoute: typeof KvartiryPomeshcheniyaRoomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -729,6 +771,8 @@ const rootRouteChildren: RootRouteChildren = {
   MaterialyIndexRoute: MaterialyIndexRoute,
   RegionIndexRoute: RegionIndexRoute,
   StatiIndexRoute: StatiIndexRoute,
+  KvartiryPomeshcheniyaRoomRoute: KvartiryPomeshcheniyaRoomRoute,
+  KvartiryPomeshcheniyaIndexRoute: KvartiryPomeshcheniyaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

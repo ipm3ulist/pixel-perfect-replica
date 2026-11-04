@@ -25,9 +25,10 @@ describe("content model", () => {
     expect(validateContent()).toEqual([]);
   });
 
-  it("has 10 apartment and 12 house categories", () => {
+  it("показывает только опубликованные категории", () => {
     expect(categoriesOf("kvartiry")).toHaveLength(10);
-    expect(categoriesOf("doma")).toHaveLength(12);
+    expect(categoriesOf("doma")).toHaveLength(14);
+    expect(categoriesOf("doma").some((c) => c.id === "doma.instrumenty")).toBe(false);
   });
 
   it("one article in two directions keeps a single URL", () => {

@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SITE } from "@/data/site";
+import { sitePath } from "@/lib/base";
 
 /** robots.txt: открыт весь публичный контент, закрыты результаты поиска и служебные адреса. */
 export const Route = createFileRoute("/robots.txt")({
@@ -10,10 +11,9 @@ export const Route = createFileRoute("/robots.txt")({
         const body = [
           "User-agent: *",
           "Allow: /",
-          "Disallow: /poisk",
-          "Disallow: /api/",
+          `Disallow: ${sitePath("/poisk")}`,
           "",
-          `Sitemap: ${origin}/sitemap.xml`,
+          `Sitemap: ${origin}${sitePath("/sitemap.xml")}`,
           "",
         ].join("\n");
         return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });

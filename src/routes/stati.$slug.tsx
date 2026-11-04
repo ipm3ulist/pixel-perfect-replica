@@ -8,6 +8,7 @@ import { categoryCrumbs } from "@/components/site/CategoryPage";
 import { ARTICLE_ENTRIES } from "@/content/entries";
 import { DIRECTIONS, getCategory, relatedOf, urlFor, type Article } from "@/content";
 import { AdSlot, PartnerBlock } from "@/monetization/PartnerBlock";
+import { NextSteps } from "@/components/content/NextSteps";
 import { MaterialsForWork } from "@/monetization/components/MaterialsForWork";
 import { articleLd, pageHead } from "@/lib/seo";
 
@@ -58,7 +59,19 @@ export const Route = createFileRoute("/stati/$slug")({
 
 function Page() {
   const a = getArticle(Route.useLoaderData().slug)!;
-  const toc = a.content.flatMap((b) => (b.type === "h2" ? [b] : []));
+  const toc = a.content.reduce<
+    { id: string; text: string; children: { id: string; text: string }[] }[]
+  >((items, block) => {
+    if (block.type === "h2") {
+      items.push({ id: block.id, text: block.text, children: [] });
+    } else if (block.type === "h3" && items.length > 0) {
+      items[items.length - 1]!.children.push({
+        id: block.id,
+        text: block.text,
+      });
+    }
+    return items;
+  }, []);
   const related = relatedOf(a);
   const cats = a.categories.map(getCategory).filter((c) => !!c);
   return (
@@ -105,6 +118,20 @@ function Page() {
                   >
                     {h.text}
                   </a>
+                  {h.children.length > 0 && (
+                    <ol className="mt-2 space-y-2 pl-4">
+                      {h.children.map((child) => (
+                        <li key={child.id}>
+                          <a
+                            href={`#${child.id}`}
+                            className="block text-xs leading-relaxed text-muted-foreground hover:text-foreground"
+                          >
+                            {child.text}
+                          </a>
+                        </li>
+                      ))}
+                    </ol>
+                  )}
                 </li>
               ))}
             </ol>
@@ -158,6 +185,7 @@ function Page() {
           </div>
         </section>
       )}
+      <NextSteps item={a} />
     </article>
   );
 }

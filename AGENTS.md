@@ -26,3 +26,7 @@
 - Optional third-party scripts (analytics, ads) load only via `src/lib/analytics.ts` after consent from `src/lib/consent.ts`; IDs come from VITE_* env so the site works with none set.
 - Regions (`src/data/regions.ts`) and legal docs (`src/data/legal.ts`) are data-driven; a region is indexed/sitemapped only when `isRegionIndexable` (published + sourced content), so no thin SEO pages ship.
 - Brand colour lives only in the `src/styles.css` tokens (`--header`, `--primary`, `--brand-bright`, `--graphite`); chrome and controls use semantic classes (`bg-header`, `bg-primary`, `aria-pressed:bg-primary`) and never hardcoded greys, so re-skinning touches one file.
+- Apartment room pages are data in `src/data/rooms/` (one `Room` per room, rendered by `RoomPage` at `/kvartiry/pomeshcheniya/$room`); tested for unique copy, valid links and no ruble prices — add rooms as data, not routes.
+- Cross-section links come from `nextSteps()` in `src/content/links.ts` (calcs/materials sharing a category + related categories + lead CTA), rendered by `NextSteps` on article pages — link via categories, not hand-picked lists.
+- Site is statically published to GitHub Pages in a repo subfolder: internal paths go through `sitePath()`/`assetPath()` in `src/lib/base.ts`, the router uses `trailingSlash: "always"`, and `vite.config.ts` sets both `base` and `router.basepath` — otherwise prerender loops on redirects.
+- Prerender page list is `src/lib/prerender-pages.json`, kept equal to sitemap by `prerender-pages.test.ts` (vite.config cannot import the content model).

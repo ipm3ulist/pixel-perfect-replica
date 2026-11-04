@@ -131,21 +131,21 @@ export const CALCULATOR_ENTRIES: Calculator[] = [
         "Калькулятор блоков и кирпича",
         "Количество газобетонных, керамических блоков или кирпича и объём кладки стен.",
         "Калькулятор газобетона, блоков и кирпича",
-        ["doma.steny"],
+        ["doma.steny", "doma.smety"],
       ],
       [
         "beton",
         "Калькулятор бетона",
         "Объём бетона для ленточного фундамента или плиты с запасом.",
         "Калькулятор бетона для фундамента",
-        ["doma.fundament"],
+        ["doma.fundament", "doma.smety"],
       ],
       [
         "uteplitel",
         "Калькулятор утеплителя",
         "Количество упаковок утеплителя по площади, требуемой толщине и размеру плит.",
         "Калькулятор утеплителя: слои и упаковки",
-        ["doma.uteplenie", "doma.fasad"],
+        ["doma.uteplenie", "doma.fasad", "doma.smety"],
       ],
     ] as [string, string, string, string, CategoryId[]][]
   ).map(([slug, title, description, seoTitle, categories]): Calculator => ({

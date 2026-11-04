@@ -337,7 +337,42 @@ const DOMA: Def[] = [
       ["osmotr", "Сезонный осмотр"],
     ],
   ],
+  [
+    "smety",
+    "Сметы и расчёты",
+    "Объёмы материалов для фундамента, стен и утепления, структура сметы и порядок расчёта.",
+    [
+      ["obemy", "Объёмы материалов"],
+      ["smeta", "Структура сметы"],
+      ["byudzhet", "Бюджет стройки"],
+    ],
+    ["doma.fundament", "doma.steny", "doma.uteplenie"],
+  ],
+  [
+    "materialy",
+    "Строительные материалы",
+    "Блоки, кирпич, утеплители, листовые и отделочные материалы: свойства, ограничения, выбор.",
+    [
+      ["stenovye", "Стеновые"],
+      ["teploizolyatsiya", "Теплоизоляция"],
+      ["otdelochnye", "Отделочные"],
+    ],
+    ["doma.steny", "doma.uteplenie", "doma.otdelka"],
+  ],
+  [
+    "instrumenty",
+    "Инструменты и оборудование",
+    "Измерительный, ручной и электроинструмент, леса и техника для стройки.",
+    [
+      ["izmeritelnye", "Измерительные"],
+      ["elektroinstrument", "Электроинструмент"],
+      ["oborudovanie", "Оборудование"],
+    ],
+  ],
 ];
+
+/** Категории без наполнения — скрыты до появления материалов. */
+const DRAFT_CATEGORIES: CategoryId[] = ["doma.instrumenty"];
 
 const CATEGORY_IMAGES: Partial<Record<CategoryId, Image>> = {
   "kvartiry.planirovanie": IMAGES.apartment,
@@ -355,7 +390,10 @@ const CATEGORY_IMAGES: Partial<Record<CategoryId, Image>> = {
 };
 
 export const CATEGORIES: Category[] = [...build("kvartiry", KVARTIRY), ...build("doma", DOMA)].map(
-  (c) => (CATEGORY_IMAGES[c.id] ? { ...c, image: CATEGORY_IMAGES[c.id]! } : c),
+  (c) => ({
+    ...(CATEGORY_IMAGES[c.id] ? { ...c, image: CATEGORY_IMAGES[c.id]! } : c),
+    ...(DRAFT_CATEGORIES.includes(c.id) ? { status: "draft" as const } : {}),
+  }),
 );
 
 export const TAGS: Tag[] = (

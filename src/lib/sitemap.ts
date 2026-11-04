@@ -1,6 +1,7 @@
 import { CATALOG, COMPARISONS } from "@/monetization/data/catalog";
 import { ALL_CONTENT, CATEGORIES } from "@/content";
 import { publishedUrls } from "@/content/validate";
+import { ROOMS, ROOMS_PATH, roomUrl } from "@/data/rooms";
 import { LEGAL_DOCS, LEGAL_UPDATED } from "@/data/legal";
 import { REGIONS, isRegionIndexable } from "@/data/regions";
 
@@ -8,6 +9,8 @@ import { REGIONS, isRegionIndexable } from "@/data/regions";
 export const STATIC_PATHS = [
   "/",
   "/kvartiry",
+  ROOMS_PATH,
+  ...ROOMS.map((r) => roomUrl(r.slug)),
   "/doma",
   "/stroitelstvo",
   "/remont",
