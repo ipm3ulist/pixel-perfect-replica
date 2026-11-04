@@ -29,17 +29,10 @@ export function BackLink() {
   return (
     <nav aria-label="Возврат на предыдущую страницу" className="border-b border-header-line bg-header">
       <div className="container-page">
-        {pathname === "/" ? (
-          <Link to="/" onClick={goBack} className={cls} aria-label="Назад">
-            <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden="true" />
-            Назад
-          </Link>
-        ) : (
-          <button type="button" onClick={goBack} className={cls}>
-            <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden="true" />
-            Назад
-          </button>
-        )}
+        <button type="button" onClick={goBack} className={cls}>
+          <ArrowLeft className="h-4 w-4 shrink-0" aria-hidden="true" />
+          Назад
+        </button>
       </div>
     </nav>
   );
