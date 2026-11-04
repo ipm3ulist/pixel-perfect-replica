@@ -28,7 +28,8 @@ const catById = new Map<string, Category>(CATEGORIES.map((c) => [c.id, c]));
 
 export const getContent = (id: ContentId) => byId.get(id);
 export const getCategory = (id: CategoryId) => catById.get(id);
-export const categoriesOf = (d: DirectionId) => CATEGORIES.filter((c) => c.direction === d);
+export const categoriesOf = (d: DirectionId) =>
+  CATEGORIES.filter((c) => c.direction === d && c.status === "published");
 export const getTag = (id: string) => TAGS.find((t) => t.id === id);
 
 /** Опубликованный контент, привязанный к категории (одна запись может быть в нескольких категориях). */

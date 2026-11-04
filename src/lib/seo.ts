@@ -1,4 +1,5 @@
 import { SITE } from "@/data/site";
+import { assetPath, sitePath } from "@/lib/base";
 
 export type Crumb = { to: string; label: string };
 
@@ -13,8 +14,11 @@ type HeadInput = {
   noindex?: boolean;
 };
 
-/** Абсолютный адрес, если задан постоянный домен (VITE_SITE_URL); иначе относительный. */
-export const abs = (p: string) => (SITE.url ? `${SITE.url}${p}` : p);
+/**
+ * Адрес страницы с базовым путём и слэшем в конце; абсолютный, если задан
+ * постоянный домен (VITE_SITE_URL — только origin, без подпапки).
+ */
+export const abs = (p: string) => `${SITE.url}${sitePath(p)}`;
 
 const withSite = (t: string) => (t.includes(SITE.name) ? t : `${t} — ${SITE.name}`);
 
@@ -55,8 +59,8 @@ export function pageHead({
       { property: "og:url", content: abs(path) },
       ...(SITE.url
         ? [
-            { property: "og:image", content: `${SITE.url}/og-image.jpg` },
-            { name: "twitter:image", content: `${SITE.url}/og-image.jpg` },
+            { property: "og:image", content: `${SITE.url}${assetPath("og-image.jpg")}` },
+            { name: "twitter:image", content: `${SITE.url}${assetPath("og-image.jpg")}` },
           ]
         : []),
       { name: "twitter:card", content: "summary_large_image" },

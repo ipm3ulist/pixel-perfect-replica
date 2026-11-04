@@ -16,6 +16,7 @@ import { Header } from "@/components/site/Header";
 import { BackLink } from "@/components/site/BackLink";
 import { Footer } from "@/components/site/Footer";
 import { SITE } from "@/data/site";
+import { assetPath, sitePath } from "@/lib/base";
 import { CookieConsent } from "@/components/site/CookieConsent";
 
 function NotFoundComponent() {
@@ -74,7 +75,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
             Повторить
           </button>
           <a
-            href="/"
+            href={sitePath("/")}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             На главную
@@ -126,7 +127,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           publisher: { "@type": "Organization", name: SITE.name },
           potentialAction: {
             "@type": "SearchAction",
-            target: "/poisk?q={query}",
+            target: `${SITE.url}${sitePath("/poisk")}?q={query}`,
             "query-input": "required name=query",
           },
         }),
@@ -137,7 +138,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: assetPath("favicon.svg"), type: "image/svg+xml" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

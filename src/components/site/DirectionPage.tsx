@@ -1,4 +1,6 @@
+import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import { ROOMS } from "@/data/rooms";
 import { ContentRows, FeatureCard } from "@/components/content/ContentList";
 import {
   DIRECTIONS,
@@ -127,6 +129,33 @@ export function DirectionPage({ direction }: { direction: DirectionId }) {
           </ol>
         </div>
       </section>
+
+      {direction === "kvartiry" && (
+        <section className="container-page pb-16 md:pb-20" aria-labelledby="rooms">
+          <div className="grid gap-6 md:grid-cols-[1fr_2fr]">
+            <div>
+              <p className="eyebrow">Помещения</p>
+              <h2 id="rooms" className="mt-3 text-3xl md:text-4xl">Ремонт по комнатам</h2>
+              <Link to="/kvartiry/pomeshcheniya" className="mt-4 inline-flex items-center gap-2 font-semibold text-primary hover:underline">
+                Все помещения <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <ul className="flex flex-wrap content-start gap-2">
+              {ROOMS.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    to="/kvartiry/pomeshcheniya/$room"
+                    params={{ room: r.slug }}
+                    className="inline-block rounded-sm border border-border bg-card px-3 py-1.5 text-sm hover:border-primary hover:text-primary"
+                  >
+                    {r.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {direction === "doma" && (
         <section className="container-page pb-16 md:pb-20" aria-labelledby="house-tools">

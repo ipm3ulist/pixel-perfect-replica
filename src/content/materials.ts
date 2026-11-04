@@ -29,7 +29,7 @@ const make = (d: Def): Material => ({
   status: "published",
   seo: { title: `${d.title}: свойства, применение, ограничения`, description: d.description },
   primaryCategory: d.cats[0]!,
-  categories: d.cats,
+  categories: [...d.cats, "doma.materialy"],
   group: d.group,
   uses: d.uses,
   pros: d.pros,

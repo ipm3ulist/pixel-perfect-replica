@@ -50,12 +50,18 @@ export function Blocks({ blocks }: { blocks: Block[] }) {
             );
           case "table":
             return (
-              <div key={i} className="my-6 overflow-x-auto border-y border-border">
+              <div
+                key={i}
+                role="region"
+                aria-label="Таблица: прокручиваемое содержимое"
+                tabIndex={0}
+                className="my-6 overflow-x-auto border-y border-border focus-visible:outline-2 focus-visible:outline-primary"
+              >
                 <table className="w-full min-w-[32rem] text-left text-sm">
                   <thead>
                     <tr className="border-b border-border">
                       {b.head.map((h, j) => (
-                        <th key={j} className="py-3 pr-4 font-display font-bold">
+                        <th key={j} scope="col" className="py-3 pr-4 font-display font-bold">
                           {h}
                         </th>
                       ))}

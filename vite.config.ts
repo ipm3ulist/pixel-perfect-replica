@@ -1,24 +1,13 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import prerenderPages from "./src/lib/prerender-pages.json";
+
+const BASE = "/";
 
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
-    pages: [
-      { path: "/" },
-      { path: "/kvartiry" },
-      { path: "/doma" },
-      { path: "/stroitelstvo" },
-      { path: "/remont" },
-      { path: "/materialy" },
-      { path: "/stati" },
-      { path: "/kalkulyatory" },
-      { path: "/instruktsii" },
-      { path: "/spravochnik" },
-      { path: "/o-proekte" },
-      { path: "/katalog" },
-      { path: "/region" },
-      { path: "/dokumenty" },
-    ],
+    router: { basepath: BASE },
+    pages: prerenderPages.map((path) => ({ path })),
     prerender: {
       enabled: true,
       crawlLinks: true,
@@ -27,9 +16,7 @@ export default defineConfig({
     },
   },
   vite: {
-    base: process.env["GITHUB_PAGES"] === "true"
-      ? "/pixel-perfect-replica/"
-      : "/",
+    base: BASE,
     optimizeDeps: {
       include: ["lucide-react", "@radix-ui/react-label"],
     },

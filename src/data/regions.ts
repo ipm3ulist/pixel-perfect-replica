@@ -8,6 +8,16 @@
  *                  (noindex) и не попадает в sitemap.
  *  - "published" — есть проверенное содержание (content + sources); страница индексируется.
  */
+export type FederalDistrict =
+  | "ЦФО"
+  | "СЗФО"
+  | "ЮФО"
+  | "СКФО"
+  | "ПФО"
+  | "УФО"
+  | "СФО"
+  | "ДФО";
+
 export type RegionSource = { title: string; url: string };
 
 export type RegionContent = {
@@ -24,6 +34,7 @@ export type Region = {
   inName: string;
   center: string;
   kind: "city" | "oblast";
+  federalDistrict: FederalDistrict;
   /** Позиция в схеме-картограмме (колонка, ряд). Не географическая проекция. */
   tile: [number, number];
   status: "planned" | "published";
@@ -40,6 +51,7 @@ export const REGIONS: Region[] = [
     inName: "в Тверской области",
     center: "Тверь",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [1, 0],
     status: "planned",
     updatedAt: D,
@@ -50,6 +62,7 @@ export const REGIONS: Region[] = [
     inName: "в Ярославской области",
     center: "Ярославль",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [3, 0],
     status: "planned",
     updatedAt: D,
@@ -60,6 +73,7 @@ export const REGIONS: Region[] = [
     inName: "в Костромской области",
     center: "Кострома",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [4, 0],
     status: "planned",
     updatedAt: D,
@@ -70,6 +84,7 @@ export const REGIONS: Region[] = [
     inName: "в Смоленской области",
     center: "Смоленск",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [0, 1],
     status: "planned",
     updatedAt: D,
@@ -80,6 +95,7 @@ export const REGIONS: Region[] = [
     inName: "в Московской области",
     center: "Красногорск",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [1, 1],
     status: "planned",
     updatedAt: D,
@@ -90,6 +106,7 @@ export const REGIONS: Region[] = [
     inName: "в Москве",
     center: "Москва",
     kind: "city",
+    federalDistrict: "ЦФО",
     tile: [2, 1],
     status: "planned",
     updatedAt: D,
@@ -100,6 +117,7 @@ export const REGIONS: Region[] = [
     inName: "во Владимирской области",
     center: "Владимир",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [3, 1],
     status: "planned",
     updatedAt: D,
@@ -110,6 +128,7 @@ export const REGIONS: Region[] = [
     inName: "в Ивановской области",
     center: "Иваново",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [4, 1],
     status: "planned",
     updatedAt: D,
@@ -120,6 +139,7 @@ export const REGIONS: Region[] = [
     inName: "в Брянской области",
     center: "Брянск",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [0, 2],
     status: "planned",
     updatedAt: D,
@@ -130,6 +150,7 @@ export const REGIONS: Region[] = [
     inName: "в Калужской области",
     center: "Калуга",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [1, 2],
     status: "planned",
     updatedAt: D,
@@ -140,6 +161,7 @@ export const REGIONS: Region[] = [
     inName: "в Тульской области",
     center: "Тула",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [2, 2],
     status: "planned",
     updatedAt: D,
@@ -150,6 +172,7 @@ export const REGIONS: Region[] = [
     inName: "в Рязанской области",
     center: "Рязань",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [3, 2],
     status: "planned",
     updatedAt: D,
@@ -160,6 +183,7 @@ export const REGIONS: Region[] = [
     inName: "в Курской области",
     center: "Курск",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [0, 3],
     status: "planned",
     updatedAt: D,
@@ -170,6 +194,7 @@ export const REGIONS: Region[] = [
     inName: "в Орловской области",
     center: "Орёл",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [1, 3],
     status: "planned",
     updatedAt: D,
@@ -180,6 +205,7 @@ export const REGIONS: Region[] = [
     inName: "в Липецкой области",
     center: "Липецк",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [2, 3],
     status: "planned",
     updatedAt: D,
@@ -190,6 +216,7 @@ export const REGIONS: Region[] = [
     inName: "в Тамбовской области",
     center: "Тамбов",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [3, 3],
     status: "planned",
     updatedAt: D,
@@ -200,6 +227,7 @@ export const REGIONS: Region[] = [
     inName: "в Белгородской области",
     center: "Белгород",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [1, 4],
     status: "planned",
     updatedAt: D,
@@ -210,6 +238,7 @@ export const REGIONS: Region[] = [
     inName: "в Воронежской области",
     center: "Воронеж",
     kind: "oblast",
+    federalDistrict: "ЦФО",
     tile: [2, 4],
     status: "planned",
     updatedAt: D,
@@ -217,6 +246,24 @@ export const REGIONS: Region[] = [
 ];
 
 export const regionBySlug = (slug: string) => REGIONS.find((r) => r.slug === slug);
+
+export const FEDERAL_DISTRICTS: FederalDistrict[] = [
+  "ЦФО", "СЗФО", "ЮФО", "СКФО", "ПФО", "УФО", "СФО", "ДФО",
+];
+
+export const FEDERAL_DISTRICT_NAMES: Record<FederalDistrict, string> = {
+  "ЦФО": "Центральный федеральный округ",
+  "СЗФО": "Северо-Западный федеральный округ",
+  "ЮФО": "Южный федеральный округ",
+  "СКФО": "Северо-Кавказский федеральный округ",
+  "ПФО": "Приволжский федеральный округ",
+  "УФО": "Уральский федеральный округ",
+  "СФО": "Сибирский федеральный округ",
+  "ДФО": "Дальневосточный федеральный округ",
+};
+
+export const regionsByDistrict = (district: FederalDistrict) =>
+  REGIONS.filter((r) => r.federalDistrict === district);
 
 /** Индексируется только регион с проверенным содержанием. */
 export const isRegionIndexable = (r: Region) => r.status === "published" && !!r.content;

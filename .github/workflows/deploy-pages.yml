@@ -1,6 +1,8 @@
-name: Deploy DomKluchPro from source
+name: Deploy DomKluchPro
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -16,45 +18,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source project
-        uses: actions/checkout@v4
-        with:
-          repository: ipm3ulist/pixel-perfect-replica-f8c71a2f
-          ref: main
-          path: source
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Install dependencies
-        working-directory: source
-        run: bun install --frozen-lockfile
-
-      - name: Run tests
-        working-directory: source
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Tests
         run: bun run test
-
-      - name: Build static website
-        working-directory: source
+      - name: Build
         env:
           GITHUB_PAGES: "true"
           VITE_SITE_URL: "https://domkluchpro.ru"
         run: bun run build
-
-      - name: Prepare Pages files
+      - name: Prepare Pages
         run: |
-          test -f source/.output/public/index.html
-          cp source/.output/public/index.html source/.output/public/404.html
-          touch source/.output/public/.nojekyll
-          count=$(find source/.output/public -name index.html | wc -l)
+          test -f .output/public/index.html
+          cp .output/public/index.html .output/public/404.html
+          touch .output/public/.nojekyll
+          count=$(find .output/public -name index.html | wc -l)
           echo "HTML pages: $count"
           test "$count" -ge 100
-          test -f source/.output/public/sitemap.xml
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+          test -f .output/public/sitemap.xml
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: source/.output/public
+          path: .output/public
 
   deploy:
     needs: build
