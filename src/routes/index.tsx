@@ -132,6 +132,7 @@ function Index() {
   const lead = latest.find((a) => a.image)!;
   const terms = TERM_ENTRIES.slice(-6);
   const family = IMAGES.familyHouseHero;
+  const familyMobile = IMAGES.familyHouseHeroMobile;
 
   return (
     <>
