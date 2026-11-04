@@ -158,18 +158,21 @@ function Index() {
             Независимый справочник для тех, кто ремонтирует квартиру или строит дом: порядок
             работ, материалы, расчёты и инструкции — без рекламы под видом советов.
           </p>
-          <div className="mt-5 flex flex-wrap gap-2 md:mt-8 md:gap-3">
-            <a
-              href="#napravlenie"
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm bg-primary px-3.5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark md:px-6 md:py-3.5"
-            >
-              Выбрать направление <ArrowRight className="h-4 w-4" />
-            </a>
+          <p className="mt-6 text-xs font-bold tracking-[0.14em] uppercase text-graphite/70 md:mt-8">
+            Выберите, с чего начнём
+          </p>
+          <div className="mt-3 flex flex-col gap-2.5 sm:flex-row md:mt-4 md:gap-3">
             <Link
-              to="/kalkulyatory"
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-sm border border-primary/35 bg-background px-3.5 py-3 text-sm font-semibold text-primary hover:bg-accent hover:text-accent-foreground md:px-6 md:py-3.5"
+              to="/kvartiry"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm bg-primary px-4 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-dark md:px-6 md:text-base"
             >
-              Калькуляторы
+              Ремонт квартир <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              to="/doma"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm border border-primary/40 bg-background/90 px-4 py-3.5 text-sm font-semibold text-primary hover:bg-accent hover:text-accent-foreground md:px-6 md:text-base"
+            >
+              Строительство домов <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
