@@ -1,3 +1,4 @@
+import type { Image } from "@/content/types";
 import { SITE } from "@/data/site";
 import { assetPath, sitePath } from "@/lib/base";
 
@@ -91,7 +92,8 @@ export function articleLd(a: {
   title: string;
   description: string;
   path: string;
-  updatedAt?: string | undefined;
+  updatedAt?: string;
+  image?: Image;
 }) {
   return {
     "@context": "https://schema.org",
@@ -101,6 +103,9 @@ export function articleLd(a: {
     mainEntityOfPage: abs(a.path),
     inLanguage: "ru",
     ...(a.updatedAt ? { dateModified: a.updatedAt } : {}),
+    ...(a.image?.src
+      ? { image: SITE.url ? new URL(a.image.src, SITE.url).href : a.image.src }
+      : {}),
     publisher: { "@type": "Organization", name: SITE.name },
   };
 }

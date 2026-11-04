@@ -39,7 +39,13 @@ export const Route = createFileRoute("/stati/$slug")({
       type: "article",
       crumbs: crumbsOf(a),
       jsonLd: [
-        articleLd({ title: a.title, description: a.description, path, updatedAt: a.updatedAt }),
+        articleLd({
+          title: a.title,
+          description: a.description,
+          path,
+          updatedAt: a.updatedAt,
+          image: a.image,
+        }),
       ],
     });
   },

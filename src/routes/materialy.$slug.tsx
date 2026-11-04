@@ -48,7 +48,13 @@ export const Route = createFileRoute("/materialy/$slug")({
       type: "article",
       crumbs: crumbsOf(m),
       jsonLd: [
-        articleLd({ title: m.title, description: m.description, path, updatedAt: m.updatedAt }),
+        articleLd({
+          title: m.title,
+          description: m.description,
+          path,
+          updatedAt: m.updatedAt,
+          image: m.image,
+        }),
       ],
     });
   },
