@@ -38,8 +38,7 @@ jobs:
         working-directory: source
         env:
           GITHUB_PAGES: "true"
-          BASE_PATH: "/pixel-perfect-replica"
-          VITE_SITE_URL: "https://ipm3ulist.github.io"
+          VITE_SITE_URL: "https://domkluchpro.ru"
         run: bun run build
 
       - name: Prepare Pages files
