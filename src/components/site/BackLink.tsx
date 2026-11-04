@@ -20,7 +20,7 @@ export function BackLink() {
     else setMode("none");
   }, [pathname]);
 
-  if (mode === "none") return null;
+  if (mode === "none" || pathname === "/") return null;
 
   const cls =
     "-ml-2.5 inline-flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-semibold text-header-foreground transition-colors hover:bg-header-foreground/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-bright";
