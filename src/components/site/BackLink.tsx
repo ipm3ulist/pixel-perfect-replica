@@ -33,7 +33,7 @@ export function BackLink() {
       aria-label={mode === "back" ? "Возврат на предыдущую страницу" : "Возврат на главную"}
       className="border-b border-header-line bg-header"
     >
-      <div className="container-page">
+      <div className="container-page py-1">
         {mode === "back" ? (
           <button
             type="button"
