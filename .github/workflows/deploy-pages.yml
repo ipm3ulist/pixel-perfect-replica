@@ -1,0 +1,68 @@
+name: Deploy DomKluchPro from source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source project
+        uses: actions/checkout@v4
+        with:
+          repository: ipm3ulist/pixel-perfect-replica-f8c71a2f
+          ref: main
+          path: source
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        working-directory: source
+        run: bun install --frozen-lockfile
+
+      - name: Run tests
+        working-directory: source
+        run: bun run test
+
+      - name: Build static website
+        working-directory: source
+        env:
+          GITHUB_PAGES: "true"
+          BASE_PATH: "/pixel-perfect-replica"
+          VITE_SITE_URL: "https://ipm3ulist.github.io"
+        run: bun run build
+
+      - name: Prepare Pages files
+        run: |
+          test -f source/.output/public/index.html
+          cp source/.output/public/index.html source/.output/public/404.html
+          touch source/.output/public/.nojekyll
+          count=$(find source/.output/public -name index.html | wc -l)
+          echo "HTML pages: $count"
+          test "$count" -ge 100
+          test -f source/.output/public/sitemap.xml
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: source/.output/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
