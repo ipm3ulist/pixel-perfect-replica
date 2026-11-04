@@ -180,6 +180,7 @@ function RootComponent() {
       </a>
       <div className="flex min-h-screen flex-col">
         <Header />
+        <BackLink />
         <main id="main" className="flex-1">
           <Outlet />
         </main>
