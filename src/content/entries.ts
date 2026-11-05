@@ -5,6 +5,7 @@
 import { GLOSSARY } from "@/data/glossary";
 import { GUIDES } from "@/data/guides";
 import { ARTICLES } from "./articles";
+import { EDITORIAL_ARTICLES } from "./editorial-articles";
 import { MATERIALS } from "./materials";
 import type { Article, Calculator, CategoryId, Guide, Material, Term } from "./types";
 
@@ -203,6 +204,7 @@ export const ARTICLE_ENTRIES: Article[] = [
     content: [{ type: "p", text: "Черновик — текст будет написан на этапе наполнения." }],
   },
   ...ARTICLES,
+  ...EDITORIAL_ARTICLES,
 ];
 
 export const MATERIAL_ENTRIES: Material[] = MATERIALS;
